@@ -82,6 +82,9 @@ final public class Matrix{
         return A;
     }
     //FUNGSI OUTPUT//
+    public static double GetElmt(Matrix M, int i, int j){
+        return M.data[i][j];
+    }
     public static void TulisMatrix(Matrix M) {
         //I.S. Matrix terdefinisi//
         //F.S. Matrix di output ke layar//
