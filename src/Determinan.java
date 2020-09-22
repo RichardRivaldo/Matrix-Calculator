@@ -8,8 +8,15 @@ public class Determinan {
     public static Matrix minor(Matrix M, int row, int col){
         //membuat matriks minor dari matriks input
         // masukan adalah baris/kolom yang mau digunakan
-        // row: jika true memilih baris ke-masukan, jika false memilih kolom ke-masukan
-
+        // row: baris yg digunakan untuk mencari minornya, col: kolom digunakan buat minornya
+        /* Kamus Lokal:
+        hasil: Matrix (matriks minor hasil keluaran)
+        i:          int (iterasi baris matriks M)
+        j:          int (iterasi kolom matriks M)    
+        counterB:   int (menghitung baris untuk matriks hasil, berbeda dari M karena saat M diskip, iterasi hasil tidak berubah namun i
+                        bertambah, jadi harus ada counter terpisah)
+        counterC:   int (sama seperti counterB, tapi untuk kolom)
+        */
         Matrix hasil = new Matrix(Matrix.GetRow(M) - 1,Matrix.GetKol(M) - 1);
         int counterB = 0;
         for (int i = 0; i < Matrix.GetKol(M); i++) {
@@ -20,7 +27,8 @@ public class Determinan {
             for (int j = 0; j < Matrix.GetRow(M); j++) {
                 // iterasi kolom M, skip jika kolom col
                 if (j == col) continue;
-
+                
+                //
                 Matrix.SetElmt(hasil, counterB, counterC, Matrix.GetElmt(M, i, j));
                 counterC++;
             }
