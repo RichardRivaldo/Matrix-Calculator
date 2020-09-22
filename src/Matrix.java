@@ -82,8 +82,21 @@ final public class Matrix{
         return A;
     }
     //FUNGSI OUTPUT//
+    // ambil nilai M.data[i][j]
     public static double GetElmt(Matrix M, int i, int j){
         return M.data[i][j];
+    }
+
+    //mengubah nilai M.data[i][j]
+    public static void SetElmt(Matrix M, int i, int j, double a) {
+        M.data[i][j] = a;
+    }
+    public static int GetRow(Matrix M){
+        return M.nbrs;
+    }
+
+    public static int GetKol(Matrix M){
+        return M.nkol;
     }
     public static void TulisMatrix(Matrix M) {
         //I.S. Matrix terdefinisi//
