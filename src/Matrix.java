@@ -136,7 +136,7 @@ final public class Matrix{
     }
 
     public static void main( String[] args) {
-        Matrix M1=MakeMatrix();
+        Matrix M1=MakeSquareMatrix();
         System.out.println("");
         TulisMatrix(M1);
     }
