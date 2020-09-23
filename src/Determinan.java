@@ -36,17 +36,30 @@ public class Determinan {
         }
         return hasil;
     }
+
+    //hitung determinan matriks M dengan ekspansi kofaktor
+    public static double hitungDeterminanEK(Matrix M) {
+        double det = 0;
+        int sign = 1;
+        double curr = 0;
+        for (int i = 0; i < Matrix.GetKol(M); i++) {
+            if ((Matrix.GetKol(minor(M, 0, i)) == 2) && (Matrix.GetRow(minor(M, 0, i)) == 2)){
+                curr = sign*det2(minor(M, 0, i))*Matrix.GetElmt(M, 0, i);
+                det += curr;
+                sign *= -1;
+            }
+            else{
+                curr = sign*hitungDeterminanEK(minor(M, 0, i))*Matrix.GetElmt(M, 0, i);
+                det += curr;
+                sign *= -1;
+            }
+        }
+        return det;
+    }
     public static void main(String[] args){
         Matrix M = new Matrix(1,1);
         M = Matrix.MakeMatrix();
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Masukkan row: ");
-        int row = sc.nextInt();
-
-        System.out.println("Masukkan kolom: ");
-        int col = sc.nextInt();
-
-        Matrix.TulisMatrix(minor(M, row, col));
+        System.out.println(hitungDeterminan(M));
     }
 }
