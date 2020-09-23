@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 final public class Matrix{
     //Kamus Lokal//
-    private static final int NBrsMin=0; //jumlah row minimum
-    private static final int NKolMin=0; //jumlah row maksimum
-    private final int nbrs;             // jumlah row
-    private final int nkol;             // jumlah column
-    private final double[][] data;      // inisialisasi matriks
+    public static final int NBrsMin=0; //jumlah row minimum
+    public static final int NKolMin=0; //jumlah row maksimum
+    public final int nbrs;             // jumlah row
+    public final int nkol;             // jumlah column
+    public final double[][] data;      // inisialisasi matriks
 
     //KONSTRUKTOR MATRIX//
     public Matrix(int brs,int kol) {
@@ -80,6 +80,26 @@ final public class Matrix{
             }
         }
         return A;
+    }
+    public static Matrix MakeSquareMatrix(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Masukan dimensi matrix: ");
+        int a = sc.nextInt();
+        while (!IsBrsValid(a)){
+            System.out.println("Maaf Masukan belum benar");
+            System.out.print("Masukan dimensi matrix: ");
+            a = sc.nextInt();
+        }
+
+        Matrix A = new Matrix(a, a);
+        for (int i = NBrsMin; i < a; i++) {
+            for (int j = NKolMin; j < a; j++) {
+                System.out.print("Masukan elemen ke [" + i + "][" + j + "]: ");
+                A.data[i][j] = sc.nextDouble();
+            }
+        }
+        return A;
+
     }
     //FUNGSI OUTPUT//
     // ambil nilai M.data[i][j]
