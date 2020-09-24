@@ -147,7 +147,8 @@ final public class Matrix{
         for(int i = 0; i < Matrix.GetRow(M1); i++){
             for(int j = 0; j < Matrix.GetKol(M2); j++){
                 for(int k = 0; k < Matrix.GetKol(M1); k++){
-                    int sum += Matrix.GetElmt(M1, i, k) * Matrix.GetElmt(M2, k, j)
+                    int sum = 0;
+                    sum += Matrix.GetElmt(M1, i, k) * Matrix.GetElmt(M2, k, j);
                     Matrix.SetElmt(hasil, i, j, sum);
                 }
             }
