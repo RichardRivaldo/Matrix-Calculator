@@ -80,7 +80,7 @@ public class Determinan {
         for (int j = 0; j < Matrix.GetRow(M); j++) { //iterasi baris dari 0 sampe abis
             for (int i = j+1; i < Matrix.GetRow(M); i++) { //iterasi baris setelah baris i sampe abis
                 double multT = Matrix.GetElmt(M, i, j) * (-1) / Matrix.GetElmt(M, j, j); //intinya multiplier supaya kalo dikurangin jadi 0
-                BarBar(M,i,j,multT); //baris yg iterasi i dikurangin sama baris iterasi j, bakal jadi 0 yg paling kiri
+                BarBar(M,i,j,multT); //baris yg iterasi i dikurangin sama (baris iterasi j * multT), bakal jadi 0.
             }
         }
         
@@ -95,6 +95,6 @@ public class Determinan {
         Matrix M = new Matrix(1,1);
         M = Matrix.MakeMatrix();
 
-        System.out.println(hitungDeterminanRB(M) == hitungDeterminanEK(M));
+        System.out.println(hitungDeterminanRB(M));
     }
 }
