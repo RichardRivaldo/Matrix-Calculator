@@ -61,18 +61,7 @@ public class Determinan {
         }
         return det;
     }
-    // kali satu baris i dengan a
-    public static void BagiBaris(Matrix M, int i, double  a){
-        for (int j = 0; j < Matrix.GetRow(M); j++) {
-            Matrix.SetElmt(M, i, j, Matrix.GetElmt(M, i, j)/a);
-        }
-    }
-    // kali satu baris j dengan a
-    public static void KaliBaris(Matrix M, int j, double a){
-        for (int i = 0; i < Matrix.GetKol(M); i++) {
-            Matrix.SetElmt(M, i, j, Matrix.GetElmt(M, i, j)*a);
-        }
-    }
+    
     // operasi penjumlahan buat baris i1 - baris i2*mult
     public static void BarBar(Matrix M, int i1, int i2, double mult){
         for (int j = 0; j < Matrix.GetKol(M); j++) {
@@ -84,32 +73,28 @@ public class Determinan {
         }
     }
     //determinan dengan reduksi baris 
-    //under construction
+    //construction done
     public static double hitungDeterminanRB(Matrix M){
-        double det = 0;
-        double mult = 1;
-        for (int j = 0; j < Matrix.GetRow(M); j++) {
-            double a = Matrix.GetElmt(M, j, j);
-            BagiBaris(M, j, a);
-            mult *= a;
-        }
-        for (int i = 0; i < Matrix.GetRow(M); i++) {
-            for (int j = 0; j < Matrix.GetRow(M); j++) {
-                if (i == j) continue;
-
-                BarBar(M,j,i,Matrix.GetElmt(M, i, i) * (-1));
+        double det = 1;
+        
+        for (int j = 0; j < Matrix.GetRow(M); j++) { //iterasi baris dari 0 sampe abis
+            for (int i = j+1; i < Matrix.GetRow(M); i++) { //iterasi baris setelah baris i sampe abis
+                double multT = Matrix.GetElmt(M, i, j) * (-1) / Matrix.GetElmt(M, j, j); //intinya multiplier supaya kalo dikurangin jadi 0
+                BarBar(M,i,j,multT); //baris yg iterasi i dikurangin sama baris iterasi j, bakal jadi 0 yg paling kiri
             }
         }
-        Matrix.TulisMatrix(M);
-        return det*mult;
+        
+        for (int i = 0; i < Matrix.GetRow(M); i++) {
+            det *= Matrix.GetElmt(M, i, i);
+        }
+        
+        return det;
     };
 
     public static void main(String[] args){
         Matrix M = new Matrix(1,1);
         M = Matrix.MakeMatrix();
 
-        BarBar(M, 0, 1, 2);
-
-        System.out.println(hitungDeterminanRB(M));
+        System.out.println(hitungDeterminanRB(M) == hitungDeterminanEK(M));
     }
 }
