@@ -135,6 +135,42 @@ final public class Matrix{
         }
     }
 
+    public static Matrix KaliMatriks(Matrix M1, Matrix M2){
+        /* Mengalikan dua buah matriks M1 dan M2
+        Syarat dari dua matriks tersebut adalah jumlah kolom M1 = jumlah baris M2 */
+        /* KAMUS LOKAL */
+        /* int i, j, k = indeks iterasi*/
+        /* int sum = jumlah perkalian tiap elemen per baris M1 kolom M2 */
+        /* Matrix hasil = hasil perkalian */
+        
+        Matrix hasil = new Matrix(Matrix.GetRow(M1), Matrix.GetKol(M2));
+        for(int i = 0; i < Matrix.GetRow(M1); i++){
+            for(int j = 0; j < Matrix.GetKol(M2); j++){
+                for(int k = 0; k < Matrix.GetKol(M1); k++){
+                    int sum = 0;
+                    sum += Matrix.GetElmt(M1, i, k) * Matrix.GetElmt(M2, k, j);
+                    Matrix.SetElmt(hasil, i, j, sum);
+                }
+            }
+        }
+        return hasil;
+    }
+
+    public static Matrix Transpose(Matrix M){
+        /* Melakukan penukaran baris dan kolom dari sebuah matriks */
+        /* KAMUS LOKAL */
+        /* int i, j = indeks */
+        /* Matrix hasil = hasil transpose */
+        Matrix hasil = new Matrix(Matrix.GetKol(M), Matrix.GetRow(M));
+
+        for(int i = 0; i < Matrix.GetRow(M); i++){
+            for(int j = 0; i < Matrix.GetKol(M); j++){
+                Matrix.SetElmt(hasil, i, j, Matrix.GetElmt(M, j, i));
+            }
+        }
+        return hasil;
+    }   
+
     public static void main( String[] args) {
         Matrix M1=MakeSquareMatrix();
         System.out.println("");
