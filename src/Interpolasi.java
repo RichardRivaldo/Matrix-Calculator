@@ -4,15 +4,15 @@ public class Interpolasi {
     public static void Interpolasi(int jumlahTitik){
 
         /* Scanner input */
-         Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
     
         Matrix augInterpolasi = new Matrix(jumlahTitik, jumlahTitik + 1);
     
         for(int i = 0; i < Matrix.GetRow(augInterpolasi); i++){
             System.out.printf("Masukkan nilai X%d: ", i + 1);
-            float X = sc.nextFloat();
+            double X = sc.nextDouble();
             System.out.printf("Masukkan nilai Y%d: ", i + 1);
-            float Y = sc.nextFloat();
+            double Y = sc.nextDouble();
             for(int j = 0; j < Matrix.GetKol(augInterpolasi) - 1; j++){
                 Matrix.SetElmt(augInterpolasi, i, j, Math.pow(X, j));
             Matrix.SetElmt(augInterpolasi, i, Matrix.GetKol(augInterpolasi) - 1, Y);
