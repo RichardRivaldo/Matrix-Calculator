@@ -105,7 +105,11 @@ public class main_menu {
                 while (pilihan3!=3){
                     if (pilihan3==1){
                         //Matrix balikan metode gauss jordan nanti disini//
-                        System.out.println("Masih dalam progress :)");
+                        System.out.println("");
+                        Matrix A=Matrix.MakeSquareMatrix();
+                        A=Inverse.InverseGaussian(A);
+                        System.out.println("");
+                        Matrix.TulisMatrix(A);
                     }
                     else if (pilihan3==2){
                         //Matrix balikan metode adjoin nanti disini//

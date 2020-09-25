@@ -164,7 +164,7 @@ final public class Matrix{
         Matrix hasil = new Matrix(Matrix.GetKol(M), Matrix.GetRow(M));
 
         for(int i = 0; i < Matrix.GetRow(M); i++){
-            for(int j = 0; i < Matrix.GetKol(M); j++){
+            for(int j = 0; j < Matrix.GetKol(M); j++){
                 Matrix.SetElmt(hasil, i, j, Matrix.GetElmt(M, j, i));
             }
         }

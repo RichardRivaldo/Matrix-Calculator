@@ -6,6 +6,12 @@ public class Inverse {
         Matrix.TulisMatrix(A);
         A=InverseGaussian(A);
         Matrix.TulisMatrix(A);
+        System.out.println("");
+        Matrix B= Matrix.MakeSquareMatrix();
+        B=InverseAdjoin(B);
+        Matrix.TulisMatrix(B);
+        
+        
     }
     public static Matrix InverseGaussian(Matrix a)
     {   //inverse matrix dengan gaussian//
@@ -84,5 +90,26 @@ public class Inverse {
                 }
             }
         }
+    }
+    public static Matrix InverseAdjoin(Matrix a){
+        int n=a.data.length;
+        Matrix x=new Matrix(n,n);
+        //find the cofactor matrix//
+        for (int i=0;i<n;i++){
+            int count=i;
+            for (int j=0;j<n;j++){
+                x.data[i][j]=Math.pow(-1,count)*Determinan.hitungDeterminanRB(Determinan.minor(a,i,j));
+                count++;
+            }
+        }
+        //transpose to find adjoint//
+        x=Matrix.Transpose(x);
+        //multiply by 1/determinant
+        for (int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                x.data[i][j]*=(1/Determinan.hitungDeterminanRB(a));
+            }
+        }
+        return x;
     }
 }
