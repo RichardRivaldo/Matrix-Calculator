@@ -163,13 +163,13 @@ final public class Matrix{
         /* Matrix hasil = hasil transpose */
         Matrix hasil = new Matrix(Matrix.GetKol(M), Matrix.GetRow(M));
 
-        for(int i = 0; i < Matrix.GetRow(M); i++){
-            for(int j = 0; j < Matrix.GetKol(M); j++){
+        for(int i = 0; i < Matrix.GetRow(hasil); i++){
+            for(int j = 0; j < Matrix.GetKol(hasil); j++){
                 Matrix.SetElmt(hasil, i, j, Matrix.GetElmt(M, j, i));
             }
         }
         return hasil;
-    }   
+    }
 
     public static void main( String[] args) {
         Matrix M1=MakeSquareMatrix();
