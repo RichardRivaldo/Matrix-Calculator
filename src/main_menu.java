@@ -310,8 +310,7 @@ public class main_menu {
                 }
             }
             else if (pilihan==4){
-                //Interpolasi polinom nanti disini//
-                System.out.println("Masih dalam progress :)");
+                Interpolasi.main(null);
             }
             else if (pilihan==5){
                 RegresiGanda.main(null);
@@ -324,5 +323,4 @@ public class main_menu {
         }
         System.out.println("Terima Kasih !! Sampai jumpa kembali");
     }
-        
 }

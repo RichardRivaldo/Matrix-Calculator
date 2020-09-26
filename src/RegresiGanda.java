@@ -92,10 +92,10 @@ public class RegresiGanda {
                 }
 
                 if(Matrix.GetElmt(hasil, i, 0) > 0){
-                    System.out.printf("%.4fX%d ", Matrix.GetElmt(hasil, i, 0), i);
+                    System.out.printf("%.4fx%d ", Matrix.GetElmt(hasil, i, 0), i);
                 }
                 else if(Matrix.GetElmt(hasil, i, 0) < 0){
-                    System.out.printf("(%.4fX%d) ", Matrix.GetElmt(hasil, i, 0), i);
+                    System.out.printf("(%.4fx%d) ", Matrix.GetElmt(hasil, i, 0), i);
                 }
                 else{
                     System.out.print("");
