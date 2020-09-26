@@ -135,6 +135,7 @@ public class main_menu {
                         pilihaninput=sc.nextInt();
                         IsWithinRange(pilihaninput, 1, 2);
                         if (pilihaninput==1){
+                            //Matrix balikan Gauss jordan input dr File//
                             Matrix X= new Matrix(5,5);
                             System.out.print("Masukan nama file:");
                             filename=sc.next();
@@ -153,12 +154,30 @@ public class main_menu {
                                 System.out.println("");
                             }
                             else{
+                                System.out.println("Berikut Inversenya");
                                 Inverse.InverseGaussian(X);
                                 Matrix.TulisMatrix(X);
                             }
                         }
                         else if(pilihaninput==2){
-
+                            //Matrix balikan gauss jordan, input dr keyboard//
+                            Matrix A= Matrix.MakeSquareMatrix();
+                            System.out.println("Berikut matrix Anda");
+                            Matrix.TulisMatrix(A);
+                            Matrix B=new Matrix(A.nbrs,A.nkol);
+                            //apparently we needed a new matrix so the old matrix ga diubah bentuknya, just to check determinan//
+                            for (int i=0;i<A.nbrs;i++){
+                                for (int j=0;j<A.nbrs;j++){
+                                    B.data[i][j]=A.data[i][j];
+                                }
+                            }
+                            double det=Determinan.hitungDeterminanRB(B);
+                            if(det==0){
+                                System.out.println("Matrix tidak memiliki inverse");
+                            }
+                            else{
+                                A=Inverse.InverseGaussian(A);
+                                Matrix.TulisMatrix(A);}
                         }
                     }
                     else if (pilihan3==2){
