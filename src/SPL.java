@@ -1,5 +1,5 @@
 public class SPL {
-    public static void gaussJordan(Matrix M) {
+    public static double[] gaussJordan(Matrix M) {
         int counter = 0;
 
         for (int i = 0; i < Matrix.GetRow(M); i++) {
@@ -24,17 +24,17 @@ public class SPL {
 
             counter++;
         }
-        System.out.println("Hasil Matriks: ");
-        Matrix.TulisMatrix(M);
-        System.out.println();
+        
+        
+        double[] hasil = new double[Matrix.GetRow(M)];
         for (int i = 0; i < Matrix.GetRow(M); i++) {
-            System.out.print("Nilai x"+ i +" adalah: " + Matrix.GetElmt(M, i, Matrix.GetKol(M)-1));
-            System.out.println();
+            hasil[i] = Matrix.GetElmt(M, i, Matrix.GetKol(M)-1);
         }
+        return hasil;
         
     }
 
-    public static void gauss(Matrix M) {
+    public static double[] gauss(Matrix M) {
         int counter = 0;
 
         for (int i = 0; i < Matrix.GetRow(M); i++) {
@@ -68,11 +68,7 @@ public class SPL {
             }
             hasil[i] = Matrix.GetElmt(M, i, Matrix.GetKol(M) - 1) - sum;
         }
-        Matrix.TulisMatrix(M);
-        for (int i = 0; i < hasil.length; i++) {
-            System.out.print("Nilai x"+i+" adalah: "+hasil[i]);
-            System.out.println();
-        }
+        return hasil;
         
     }
 
@@ -86,7 +82,11 @@ public class SPL {
         }
         Matrix.TulisMatrix(M);
         System.out.println("\n");
-        gauss(M);
-        gaussJordan(M);
+        double[] x = gauss(M);
+        double[] y = gaussJordan(M);
+        for (int i = 0; i < y.length; i++) {
+            System.out.print(x[i] + " "+ y[i]);
+            System.out.println();
+        }
     }
 }
