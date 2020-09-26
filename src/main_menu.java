@@ -314,8 +314,7 @@ public class main_menu {
                 System.out.println("Masih dalam progress :)");
             }
             else if (pilihan==5){
-                //Regresi linier nanti disini//
-                System.out.println("Masih dalam progress :)");
+                RegresiGanda.main(null);
             }
             PrintMainMenu();
             System.out.print("Silakan input angka 1-6 sesuai pilihan: ");

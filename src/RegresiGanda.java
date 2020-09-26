@@ -27,32 +27,33 @@ public class RegresiGanda {
             double Y = sc.nextDouble();
             Matrix.SetElmt(titikOrdinat, i, 0, Y);
         }
-
+        /*
         Matrix.TulisMatrix(titikAbsis);
         Matrix.TulisMatrix(titikOrdinat);
+        */
 
         Matrix XTranspose = new Matrix(Matrix.GetKol(titikAbsis), Matrix.GetRow(titikAbsis));
         XTranspose = Matrix.Transpose(titikAbsis);
-        Matrix.TulisMatrix(XTranspose);
+        /* Matrix.TulisMatrix(XTranspose); */
 
         Matrix TransposeXKaliX = new Matrix(Matrix.GetRow(XTranspose), Matrix.GetKol(titikAbsis));
         TransposeXKaliX = Matrix.KaliMatriks(XTranspose, titikAbsis);
-        Matrix.TulisMatrix(TransposeXKaliX);
+        /* Matrix.TulisMatrix(TransposeXKaliX); */
 
         Matrix InverseTransXKaliX = new Matrix(Matrix.GetRow(TransposeXKaliX), Matrix.GetKol(TransposeXKaliX));
         InverseTransXKaliX = Inverse.InverseGaussian(TransposeXKaliX);
-        Matrix.TulisMatrix(InverseTransXKaliX);
+        /* Matrix.TulisMatrix(InverseTransXKaliX); */
 
         Matrix XTransposeKaliY = new Matrix(Matrix.GetRow(XTranspose), Matrix.GetKol(titikOrdinat));
         XTransposeKaliY = Matrix.KaliMatriks(XTranspose, titikOrdinat);
-        Matrix.TulisMatrix(XTransposeKaliY);
+        /* Matrix.TulisMatrix(XTransposeKaliY); */
 
         Matrix hasil = new Matrix(jumlahVariabel + 1, 1);
         hasil = Matrix.KaliMatriks(InverseTransXKaliX, XTransposeKaliY);
-        Matrix.TulisMatrix(hasil);
+        /* Matrix.TulisMatrix(hasil); */
 
         Matrix predictData = new Matrix(1, jumlahVariabel + 1);
-        System.out.println("Masukkan data yang ingin ditaksir dengan persamaan regresi linier: ");
+        System.out.println("Masukkan data yang ingin diregresi: ");
         
         for(int j = 0; j < Matrix.GetKol(predictData); j++){
             Matrix.SetElmt(predictData, 0, j, 1);
@@ -63,7 +64,7 @@ public class RegresiGanda {
             double data = sc.nextDouble();
             Matrix.SetElmt(predictData, 0, j, data);
         }
-        Matrix.TulisMatrix(predictData);
+        /* Matrix.TulisMatrix(predictData); */
 
         boolean isNan = false;
 
@@ -113,14 +114,14 @@ public class RegresiGanda {
         Scanner sc = new Scanner(System.in);
         System.out.print("Masukkan jumlah data: ");
         int jumlahData = sc.nextInt();
-        System.out.print("Masukkan jumlah variabel dependen: ");
+        System.out.print("Masukkan jumlah variabel independen: ");
         int jumlahVariabel = sc.nextInt();
         while(jumlahData < 0 || jumlahVariabel < 0){
             if(jumlahData < 0 && jumlahVariabel < 0){
-                System.out.println("Jumlah data dan variabel dependen invalid. Masukkan lagi:");
+                System.out.println("Jumlah data dan variabel independen invalid. Masukkan lagi:");
                 System.out.print("Jumlah data: ");
                 jumlahData = sc.nextInt();
-                System.out.print("Jumlah variabel dependen: ");
+                System.out.print("Jumlah variabel independen: ");
                 jumlahVariabel = sc.nextInt();
             }
             else if(jumlahData < 0){
