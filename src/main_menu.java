@@ -109,11 +109,67 @@ public class main_menu {
                 while(pilihan2!=3){
                     if (pilihan2==1){
                         //Determinan metode ekspansi kofaktor nanti disini//
-                        System.out.println("Masih dalam progress :)");
+                        PrintSubMenuInput();
+                        pilihaninput=sc.nextInt();
+                        IsWithinRange(pilihaninput, 1, 2);
+                        if (pilihaninput==1){
+                            //input dari file//
+                            Matrix X= new Matrix(5,5);
+                            System.out.print("Masukan nama file:");
+                            filename=sc.next();
+                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                            int n=sc.nextInt();
+                            try{X=(BacaFileToMatrix(filename, n, n));}
+                            catch (Exception e){
+                                System.out.println("file tidak ditemukan");
+                            }
+                            System.out.println("Berikut matrix dari file");
+                            Matrix.TulisMatrix(X);
+                            double det=Determinan.hitungDeterminanEK(X);
+                            System.out.println("");
+                            System.out.println("Determinan dari matrix tersebut adalah "+det);
+                        }
+                        else if (pilihaninput==2){
+                            //input dari keyboard//
+                            Matrix A=Matrix.MakeSquareMatrix();
+                            System.out.println("Berikut matrix anda");
+                            Matrix.TulisMatrix(A);
+                            System.out.println("");
+                            double det=Determinan.hitungDeterminanEK(A);
+                            System.out.println("Determinan dari matrix tersebut adalah "+det);
+                        }
                     }
                     else if(pilihan2==2){
                         //Determinan metode row reduction nanti disini//
-                        System.out.println("Masih dalam progress :)");
+                        PrintSubMenuInput();
+                        pilihaninput=sc.nextInt();
+                        IsWithinRange(pilihaninput, 1, 2);
+                        if (pilihaninput==1){
+                            //input dari file//
+                            Matrix X= new Matrix(5,5);
+                            System.out.print("Masukan nama file:");
+                            filename=sc.next();
+                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                            int n=sc.nextInt();
+                            try{X=(BacaFileToMatrix(filename, n, n));}
+                            catch (Exception e){
+                                System.out.println("file tidak ditemukan");
+                            }
+                            System.out.println("Berikut matrix dari file");
+                            Matrix.TulisMatrix(X);
+                            double det=Determinan.hitungDeterminanRB(X);
+                            System.out.println("");
+                            System.out.println("Determinan dari matrix tersebut adalah "+det);
+                        }
+                        else if (pilihaninput==2){
+                            //input dari keyboard//
+                            Matrix A=Matrix.MakeSquareMatrix();
+                            System.out.println("Berikut matrix anda");
+                            Matrix.TulisMatrix(A);
+                            System.out.println("");
+                            double det=Determinan.hitungDeterminanRB(A);
+                            System.out.println("Determinan dari matrix tersebut adalah "+det);
+                        }
                     }
                     PrintSubMenu2();
                     pilihan2=sc.nextInt();
