@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.io.FileReader;
+import java.util.Arrays;
+import java.io.BufferedReader;
 /*Main file, main menu, program utama yg akan dijalankan*/
 public class main_menu {
     public static void PrintMainMenu(){
@@ -20,6 +23,7 @@ public class main_menu {
         System.out.print("Silakan input angka 1-3 sesuai pilihan: ");
     }
     public static void IsWithinRange(int x,int a, int b){
+        //prosedur check apakah dia dalam suatu range atau tidak//
         Scanner scan=new Scanner(System.in);
         if (x<a || x>b){
             while (x<a || x>b){
@@ -28,12 +32,34 @@ public class main_menu {
             x=scan.nextInt();}
             }
     }
+    public static Matrix BacaFileToMatrix(String namafile,int a,int b) throws Exception{
+        //prosedur membaca dari namafile.txt ke matrix//
+        //parameter namafile:string (nama dari file) a:jumlah row b: jumlah kolom//
+        Scanner sc = new Scanner(new BufferedReader(new FileReader(namafile)));
+        Matrix M=new Matrix(a,b);
+        while(sc.hasNextLine()) {
+            for (int i=0; i<M.data.length; i++) {
+               String[] line = sc.nextLine().trim().split(" ");
+               for (int j=0; j<line.length; j++) {
+                  M.data[i][j] = Integer.parseInt(line[j]);
+               }
+            }
+         }
+        return M;
+    }
+    public static void PrintSubMenuInput(){
+        System.out.print("Silakan pilih stream input\n");
+        System.out.print("1. Baca File\n");
+        System.out.print("2. Keyboard\n");
+        System.out.print("Masukkan pilihan (1-2):");
+    }
 
     public static void main(String[] args) {
         //method utama yang akan dijalankan//
         //inisiasi variabel//
         Scanner sc=new Scanner(System.in);
-        int pilihan,pilihan1,pilihan2,pilihan3;
+        int pilihan,pilihan1,pilihan2,pilihan3,pilihaninput;
+        String filename;
 
         System.out.println("Selamat Datang di Tugas Besar Algeo!");
         System.out.println("Tubes ini adalah hasil kolaborasi Hizkia (13519087), Rian (13519147), & Richard (13519185)");
@@ -105,11 +131,35 @@ public class main_menu {
                 while (pilihan3!=3){
                     if (pilihan3==1){
                         //Matrix balikan metode gauss jordan nanti disini//
-                        System.out.println("");
-                        Matrix A=Matrix.MakeSquareMatrix();
-                        A=Inverse.InverseGaussian(A);
-                        System.out.println("");
-                        Matrix.TulisMatrix(A);
+                        PrintSubMenuInput();
+                        pilihaninput=sc.nextInt();
+                        IsWithinRange(pilihaninput, 1, 2);
+                        if (pilihaninput==1){
+                            Matrix X= new Matrix(5,5);
+                            System.out.print("Masukan nama file:");
+                            filename=sc.next();
+                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                            int n=sc.nextInt();
+                            try{X=(BacaFileToMatrix(filename, n, n));}
+                            catch (Exception e){
+                                System.out.println("file tidak ditemukan");
+                            }
+                            System.out.println("");
+                            System.out.println("Berikut matrix dari file");
+                            Matrix.TulisMatrix(X);
+                            System.out.println("");
+                            if (Determinan.hitungDeterminanRB(X)==0){
+                                System.out.println("Matrix tidak memiliki inverse");
+                                System.out.println("");
+                            }
+                            else{
+                                Inverse.InverseGaussian(X);
+                                Matrix.TulisMatrix(X);
+                            }
+                        }
+                        else if(pilihaninput==2){
+
+                        }
                     }
                     else if (pilihan3==2){
                         //Matrix balikan metode adjoin nanti disini//
