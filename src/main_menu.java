@@ -22,15 +22,15 @@ public class main_menu {
         System.out.print("Sub Menu 3\n1. metode eliminasi gauss-jordan\n2. metode adjoin\n3. kembali\n");
         System.out.print("Silakan input angka 1-3 sesuai pilihan: ");
     }
-    public static void IsWithinRange(int x,int a, int b){
+    public static int IsWithinRange(int x,int a, int b){
         //prosedur check apakah dia dalam suatu range atau tidak//
         Scanner scan=new Scanner(System.in);
-        if (x<a || x>b){
-            while (x<a || x>b){
+        while (x<a || x>b){
             System.out.println("Mohon maaf, pilihan belum benar, silakan coba lagi");
             System.out.print("Silakan input angka yang sesuai : ");
-            x=scan.nextInt();}
-            }
+            x=scan.nextInt();
+        }
+        return x;
     }
     public static Matrix BacaFileToMatrix(String namafile,int a,int b) throws Exception{
         //prosedur membaca dari namafile.txt ke matrix//
@@ -67,7 +67,7 @@ public class main_menu {
         System.out.print("Silakan input angka 1-6 sesuai pilihan: ");
         pilihan=sc.nextInt();
         //check apakah pilihan dalam range/tidak//
-        IsWithinRange(pilihan, 1, 6);
+        pilihan=IsWithinRange(pilihan, 1, 6);
         //ketika sudah dalam range 1-6//
         while (pilihan!=6){
             if (pilihan==1){
@@ -75,7 +75,7 @@ public class main_menu {
                 PrintSubMenu1();
                 pilihan1=sc.nextInt();
                 //check pilihan1 dalam range atau tidak//
-                IsWithinRange(pilihan1, 1, 5);
+                pilihan1=IsWithinRange(pilihan1, 1, 5);
                 //kalau pilihan1 sudah in range//
                 while (pilihan1!=5){
                     if (pilihan1==1){
@@ -97,7 +97,7 @@ public class main_menu {
                     PrintSubMenu1();
                     pilihan1=sc.nextInt();
                     //check range lagi//
-                    IsWithinRange(pilihan1, 1, 5);
+                    pilihan1=IsWithinRange(pilihan1, 1, 5);
                 }
             }    
             else if (pilihan==2){
@@ -105,7 +105,7 @@ public class main_menu {
                 PrintSubMenu2();
                 pilihan2=sc.nextInt();
                 //check range pilihan2//
-                IsWithinRange(pilihan2, 1, 3);
+                pilihan2=IsWithinRange(pilihan2, 1, 3);
                 while(pilihan2!=3){
                     if (pilihan2==1){
                         //Determinan metode ekspansi kofaktor nanti disini//
@@ -174,7 +174,7 @@ public class main_menu {
                     PrintSubMenu2();
                     pilihan2=sc.nextInt();
                     //check range lagi//
-                    IsWithinRange(pilihan2, 1, 3);
+                    pilihan2=IsWithinRange(pilihan2, 1, 3);
                 }
 
             }
@@ -183,7 +183,7 @@ public class main_menu {
                 PrintSubMenu3();
                 pilihan3=sc.nextInt();
                 //check range pilihan3//
-                IsWithinRange(pilihan3, 1, 3);
+                pilihan3=IsWithinRange(pilihan3, 1, 3);
                 while (pilihan3!=3){
                     if (pilihan3==1){
                         //Matrix balikan metode gauss jordan nanti disini//
@@ -306,7 +306,7 @@ public class main_menu {
                     PrintSubMenu3();
                     pilihan3=sc.nextInt();
                     //check range lagi//
-                    IsWithinRange(pilihan3, 1, 3);
+                    pilihan3=IsWithinRange(pilihan3, 1, 3);
                 }
             }
             else if (pilihan==4){
@@ -320,7 +320,7 @@ public class main_menu {
             System.out.print("Silakan input angka 1-6 sesuai pilihan: ");
             pilihan=sc.nextInt();
             //check range pilihan//
-            IsWithinRange(pilihan, 1, 6);
+            pilihan=IsWithinRange(pilihan, 1, 6);
         }
         System.out.println("Terima Kasih !! Sampai jumpa kembali");
     }
