@@ -145,17 +145,25 @@ public class main_menu {
                             catch (Exception e){
                                 System.out.println("file tidak ditemukan");
                             }
+                            //copy the matrix//
+                            Matrix Y=new Matrix(X.nbrs,X.nkol);
+                            for (int i=0;i<X.nbrs;i++){
+                                for (int j=0;j<X.nkol;j++){
+                                    Y.data[i][j]=X.data[i][j];
+                                }
+                            }
+                            //
                             System.out.println("");
                             System.out.println("Berikut matrix dari file");
                             Matrix.TulisMatrix(X);
                             System.out.println("");
-                            if (Determinan.hitungDeterminanRB(X)==0){
+                            if (Determinan.hitungDeterminanRB(Y)==0){
                                 System.out.println("Matrix tidak memiliki inverse");
                                 System.out.println("");
                             }
                             else{
                                 System.out.println("Berikut Inversenya");
-                                Inverse.InverseGaussian(X);
+                                X=Inverse.InverseGaussian(X);
                                 Matrix.TulisMatrix(X);
                             }
                         }
@@ -182,7 +190,62 @@ public class main_menu {
                     }
                     else if (pilihan3==2){
                         //Matrix balikan metode adjoin nanti disini//
-                        System.out.println("Masih dalam progress :)");
+                        PrintSubMenuInput();
+                        pilihaninput=sc.nextInt();
+                        IsWithinRange(pilihaninput, 1, 2);
+                        if (pilihaninput==1){
+                            //Matrix balikan Adjoin input dr File//
+                            Matrix X= new Matrix(5,5);
+                            System.out.print("Masukan nama file:");
+                            filename=sc.next();
+                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                            int n=sc.nextInt();
+                            try{X=(BacaFileToMatrix(filename, n, n));}
+                            catch (Exception e){
+                                System.out.println("file tidak ditemukan");
+                            }
+                            //copy the matrix
+                            Matrix Y=new Matrix(X.nbrs,X.nkol);
+                            for (int i=0;i<X.nbrs;i++){
+                                for (int j=0;j<X.nbrs;j++){
+                                    Y.data[i][j]=X.data[i][j];
+                                }
+                            }
+                            System.out.println("");
+                            System.out.println("Berikut matrix dari file");
+                            Matrix.TulisMatrix(X);
+                            System.out.println("");
+                            if (Determinan.hitungDeterminanRB(Y)==0){
+                                System.out.println("Matrix tidak memiliki inverse");
+                                System.out.println("");
+                            }
+                            else{
+                                System.out.println("Berikut Inversenya");
+                                X=Inverse.InverseAdjoin(X);
+                                Matrix.TulisMatrix(X);
+                            }
+                        }
+                        else if(pilihaninput==2){
+                            //Matrix balikan Adjoin, input dr keyboard//
+                            Matrix A= Matrix.MakeSquareMatrix();
+                            System.out.println("Berikut matrix Anda");
+                            Matrix.TulisMatrix(A);
+                            Matrix B=new Matrix(A.nbrs,A.nkol);
+                            //copy the matrix//
+                            for (int i=0;i<A.nbrs;i++){
+                                for (int j=0;j<A.nbrs;j++){
+                                    B.data[i][j]=A.data[i][j];
+                                }
+                            }
+                            double det=Determinan.hitungDeterminanRB(B);
+                            if(det==0){
+                                System.out.println("Matrix tidak memiliki inverse");
+                            }
+                            else{
+                                A=Inverse.InverseAdjoin(A);
+                                Matrix.TulisMatrix(A);
+                            }
+                        }
                     }
                     PrintSubMenu3();
                     pilihan3=sc.nextInt();
