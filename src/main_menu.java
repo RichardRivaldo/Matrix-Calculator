@@ -51,7 +51,7 @@ public class main_menu {
         System.out.print("Silakan pilih stream input\n");
         System.out.print("1. Baca File\n");
         System.out.print("2. Keyboard\n");
-        System.out.print("Masukkan pilihan (1-2):");
+        System.out.print("Masukkan pilihan (1-2): ");
     }
 
     public static void main(String[] args) {
@@ -341,11 +341,29 @@ public class main_menu {
                 }
             }
             else if (pilihan==4){
-                Interpolasi.main(null);
+                PrintSubMenuInput();
+                pilihaninput = sc.nextInt();
+                IsWithinRange(pilihaninput, 1, 2);
+
+                if(pilihaninput == 1){
+                    Interpolasi.FileInterpolasi();
+                }
+                else{
+                    Interpolasi.main(null);
+                }
                 System.out.println("");
             }
             else if (pilihan==5){
-                RegresiGanda.main(null);
+                PrintSubMenuInput();
+                pilihaninput = sc.nextInt();
+                IsWithinRange(pilihaninput, 1, 2);
+
+                if(pilihaninput == 1){
+                    RegresiGanda.FileRegresi();
+                }
+                else{
+                    RegresiGanda.main(null);
+                }
                 System.out.println("");
             }
             PrintMainMenu();
