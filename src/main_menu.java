@@ -80,11 +80,42 @@ public class main_menu {
                 while (pilihan1!=5){
                     if (pilihan1==1){
                         //SPL metode eliminasi gauss nanti disini//
-                        System.out.println("Masih dalam progress :)");
+                        Matrix X= new Matrix(5,5);
+                        System.out.print("Masukan nama file:");
+                        filename=sc.next();
+                        System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                        int n=sc.nextInt();
+                        try{X=(BacaFileToMatrix(filename, n, n));}
+                        catch (Exception e){
+                            System.out.println("file tidak ditemukan");
+                        }
+                        System.out.println("Berikut matrix dari file");
+                        Matrix.TulisMatrix(X);
+
+                        double[] hasil = SPL.gauss(X);
+                        for (int i = 0; i < hasil.length; i++) {
+                            System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                        }
+
                     }
                     else if (pilihan1==2){
                         //SPL metode eliminasi Gauss Jordan nanti disini//
-                        System.out.println("Masih dalam progress :)");
+                        Matrix X= new Matrix(5,5);
+                        System.out.print("Masukan nama file:");
+                        filename=sc.next();
+                        System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                        int n=sc.nextInt();
+                        try{X=(BacaFileToMatrix(filename, n, n));}
+                        catch (Exception e){
+                            System.out.println("file tidak ditemukan");
+                        }
+                        System.out.println("Berikut matrix dari file");
+                        Matrix.TulisMatrix(X);
+
+                        double[] hasil = SPL.gaussJordan(X);
+                        for (int i = 0; i < hasil.length; i++) {
+                            System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                        }
                     }
                     else if (pilihan1==3){
                         //SPL metode matrix balikan nanti disini//
