@@ -311,9 +311,11 @@ public class main_menu {
             }
             else if (pilihan==4){
                 Interpolasi.main(null);
+                System.out.println("");
             }
             else if (pilihan==5){
                 RegresiGanda.main(null);
+                System.out.println("");
             }
             PrintMainMenu();
             System.out.print("Silakan input angka 1-6 sesuai pilihan: ");
