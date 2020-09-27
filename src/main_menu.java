@@ -41,7 +41,7 @@ public class main_menu {
             for (int i=0; i<M.data.length; i++) {
                String[] line = sc.nextLine().trim().split(" ");
                for (int j=0; j<line.length; j++) {
-                  M.data[i][j] = Float.parseFloat(line[j]);
+                  M.data[i][j] = Double.parseDouble(line[j]);
                }
             }
          }
