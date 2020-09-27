@@ -91,7 +91,7 @@ public class Interpolasi {
             System.out.println("File tidak ditemukan.");
         }
 
-        Matrix augInterpolasi = new Matrix(jumlahbaris, jumlahkolom);
+        Matrix augInterpolasi = new Matrix(jumlahbaris, jumlahbaris + 1);
         for(int i = 0; i < Matrix.GetRow(augInterpolasi); i++){
             for(int j = 0; j < Matrix.GetKol(augInterpolasi) - 1; j++){
                 Matrix.SetElmt(augInterpolasi, i, j, Math.pow(Matrix.GetElmt(dataInterpolasi, i, 0), j));

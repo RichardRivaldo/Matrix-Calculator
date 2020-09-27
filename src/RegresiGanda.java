@@ -127,22 +127,25 @@ public class RegresiGanda {
             System.out.println("File tidak ditemukan.");
         }
 
-        Matrix titikAbsis = new Matrix(jumlahbaris, jumlahkolom - 1);
+        Matrix titikAbsis = new Matrix(jumlahbaris, jumlahkolom);
         for(int i = 0; i < Matrix.GetRow(titikAbsis); i++){
             for(int j = 0; j < Matrix.GetKol(titikAbsis); j++){
                 Matrix.SetElmt(titikAbsis, i, j, 1);
             }
         }
-        for(int i = 1; i < Matrix.GetRow(titikAbsis); i++){
-            for(int j = 0; i < Matrix.GetKol(titikAbsis); j++){
-                Matrix.SetElmt(titikAbsis, i, j, Matrix.GetElmt(dataRegresi, i - 1, j));
+
+        for(int i = 0; i < Matrix.GetRow(titikAbsis); i++){
+            for(int j = 1; j < Matrix.GetKol(titikAbsis); j++){
+                Matrix.SetElmt(titikAbsis, i, j, Matrix.GetElmt(dataRegresi, i, j - 1));
             }
         }
+        Matrix.TulisMatrix(titikAbsis);
         
         Matrix titikOrdinat = new Matrix(jumlahbaris, 1);
         for(int i = 0; i < Matrix.GetRow(titikOrdinat); i++){
             Matrix.SetElmt(titikOrdinat, i, 0, Matrix.GetElmt(dataRegresi, i, Matrix.GetKol(dataRegresi) - 1));
         }
+        Matrix.TulisMatrix(titikOrdinat);
 
         Matrix XTranspose = new Matrix(Matrix.GetKol(titikAbsis), Matrix.GetRow(titikAbsis));
         XTranspose = Matrix.Transpose(titikAbsis);
