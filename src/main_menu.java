@@ -80,41 +80,70 @@ public class main_menu {
                 while (pilihan1!=5){
                     if (pilihan1==1){
                         //SPL metode eliminasi gauss nanti disini//
-                        Matrix X= new Matrix(5,5);
-                        System.out.print("Masukan nama file: ");
-                        filename=sc.next();
-                        System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
-                        int n=sc.nextInt();
-                        try{X=(BacaFileToMatrix(filename, n, n));}
-                        catch (Exception e){
-                            System.out.println("File tidak ditemukan!");
-                        }
-                        System.out.println("Berikut matrix dari file tersebut: ");
-                        Matrix.TulisMatrix(X);
+                        PrintSubMenuInput();
+                        pilihaninput=sc.nextInt();
+                        pilihaninput=IsWithinRange(pilihaninput, 1, 2);
+                        if (pilihaninput==1){
+                            Matrix X= new Matrix(5,5);
+                            System.out.print("Masukan nama file: ");
+                            filename=sc.next();
+                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                            int n=sc.nextInt();
+                            try{X=(BacaFileToMatrix(filename, n, n));}
+                            catch (Exception e){
+                                System.out.println("File tidak ditemukan!");
+                            }
+                            System.out.println("Berikut matrix dari file tersebut: ");
+                            Matrix.TulisMatrix(X);
 
-                        double[] hasil = SPL.gauss(X);
-                        for (int i = 0; i < hasil.length; i++) {
-                            System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                            double[] hasil = SPL.gauss(X);
+                            for (int i = 0; i < hasil.length; i++) {
+                                System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                            }
                         }
+                        else if (pilihaninput==2){
+                            Matrix A=Matrix.MakeMatrix();
+                            System.out.println("Berikut matrix anda: ");
+                            Matrix.TulisMatrix(A);
 
+                            double[] hasil = SPL.gauss(X);
+                            for (int i = 0; i < hasil.length; i++) {
+                                System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                            }
+                        }
                     }
                     else if (pilihan1==2){
                         //SPL metode eliminasi Gauss Jordan nanti disini//
-                        Matrix X= new Matrix(5,5);
-                        System.out.print("Masukan nama file: ");
-                        filename=sc.next();
-                        System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
-                        int n=sc.nextInt();
-                        try{X=(BacaFileToMatrix(filename, n, n));}
-                        catch (Exception e){
-                            System.out.println("File tidak ditemukan!");
-                        }
-                        System.out.println("Berikut matrix dari file tersebut: ");
-                        Matrix.TulisMatrix(X);
+                        PrintSubMenuInput();
+                        pilihaninput=sc.nextInt();
+                        pilihaninput=IsWithinRange(pilihaninput, 1, 2);
+                        if (pilihaninput==1){
+                            Matrix X= new Matrix(5,5);
+                            System.out.print("Masukan nama file: ");
+                            filename=sc.next();
+                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                            int n=sc.nextInt();
+                            try{X=(BacaFileToMatrix(filename, n, n));}
+                            catch (Exception e){
+                                System.out.println("File tidak ditemukan!");
+                            }
+                            System.out.println("Berikut matrix dari file tersebut: ");
+                            Matrix.TulisMatrix(X);
 
-                        double[] hasil = SPL.gaussJordan(X);
-                        for (int i = 0; i < hasil.length; i++) {
-                            System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                            double[] hasil = SPL.gaussJordan(X);
+                            for (int i = 0; i < hasil.length; i++) {
+                                System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                            }
+                        }
+                        else if (pilihaninput==2){
+                            Matrix A=Matrix.MakeMatrix();
+                            System.out.println("Berikut matrix anda: ");
+                            Matrix.TulisMatrix(A);
+
+                            double[] hasil = SPL.gaussJordan(X);
+                            for (int i = 0; i < hasil.length; i++) {
+                                System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                            }
                         }
                     }
                     else if (pilihan1==3){
@@ -142,7 +171,7 @@ public class main_menu {
                         //Determinan metode ekspansi kofaktor nanti disini//
                         PrintSubMenuInput();
                         pilihaninput=sc.nextInt();
-                        IsWithinRange(pilihaninput, 1, 2);
+                        pilihaninput=IsWithinRange(pilihaninput, 1, 2);
                         if (pilihaninput==1){
                             //input dari file//
                             Matrix X= new Matrix(5,5);
@@ -174,7 +203,7 @@ public class main_menu {
                         //Determinan metode row reduction nanti disini//
                         PrintSubMenuInput();
                         pilihaninput=sc.nextInt();
-                        IsWithinRange(pilihaninput, 1, 2);
+                        pilihaninput=IsWithinRange(pilihaninput, 1, 2);
                         if (pilihaninput==1){
                             //input dari file//
                             Matrix X= new Matrix(5,5);
@@ -220,7 +249,7 @@ public class main_menu {
                         //Matrix balikan metode gauss jordan nanti disini//
                         PrintSubMenuInput();
                         pilihaninput=sc.nextInt();
-                        IsWithinRange(pilihaninput, 1, 2);
+                        pilihaninput=IsWithinRange(pilihaninput, 1, 2);
                         if (pilihaninput==1){
                             //Matrix balikan Gauss jordan input dr File//
                             Matrix X= new Matrix(5,5);
@@ -279,7 +308,7 @@ public class main_menu {
                         //Matrix balikan metode adjoin nanti disini//
                         PrintSubMenuInput();
                         pilihaninput=sc.nextInt();
-                        IsWithinRange(pilihaninput, 1, 2);
+                        pilihaninput=IsWithinRange(pilihaninput, 1, 2);
                         if (pilihaninput==1){
                             //Matrix balikan Adjoin input dr File//
                             Matrix X= new Matrix(5,5);
@@ -343,7 +372,7 @@ public class main_menu {
             else if (pilihan==4){
                 PrintSubMenuInput();
                 pilihaninput = sc.nextInt();
-                IsWithinRange(pilihaninput, 1, 2);
+                pilihaninput=IsWithinRange(pilihaninput, 1, 2);
 
                 if(pilihaninput == 1){
                     Interpolasi.FileInterpolasi();
@@ -356,7 +385,7 @@ public class main_menu {
             else if (pilihan==5){
                 PrintSubMenuInput();
                 pilihaninput = sc.nextInt();
-                IsWithinRange(pilihaninput, 1, 2);
+                pilihaninput=IsWithinRange(pilihaninput, 1, 2);
 
                 if(pilihaninput == 1){
                     RegresiGanda.FileRegresi();
