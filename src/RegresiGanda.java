@@ -1,5 +1,7 @@
 import java.util.Scanner;
-
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 public class RegresiGanda {
     /* Masih salah metodenya */
     public static void MultiRegresi(int jumlahData, int jumlahVariabel){
@@ -107,6 +109,22 @@ public class RegresiGanda {
             dataKaliHasil = Matrix.KaliMatriks(predictData, hasil);
             double hasilRegresi = Matrix.GetElmt(dataKaliHasil, 0, 0);
             System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f\n", hasilRegresi);
+            //buat save file//
+            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+            char save=sc.next().charAt(0);
+            if (save=='Y' || save=='y'){
+                System.out.print("Masukan nama file: ");
+                String filenamesave=sc.next();
+                try{
+                    FileWriter fileWriter = new FileWriter(filenamesave);
+                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                    printWriter.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f\n", hasilRegresi);
+                    printWriter.close();
+                }
+                catch (Exception e){
+                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                }
+            }
         }
     }
 
@@ -220,6 +238,22 @@ public class RegresiGanda {
             dataKaliHasil = Matrix.KaliMatriks(predictData, hasil);
             double hasilRegresi = Matrix.GetElmt(dataKaliHasil, 0, 0);
             System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f\n", hasilRegresi);
+            //Buat save file//
+            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+            char save=sc.next().charAt(0);
+            if (save=='Y' || save=='y'){
+                System.out.print("Masukan nama file: ");
+                String filenamesave=sc.next();
+                try{
+                    FileWriter fileWriter = new FileWriter(filenamesave);
+                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                    printWriter.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f\n", hasilRegresi);
+                    printWriter.close();
+                }
+                catch (Exception e){
+                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                }
+            }
         }
     }
 

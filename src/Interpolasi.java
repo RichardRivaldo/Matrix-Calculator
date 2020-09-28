@@ -1,5 +1,7 @@
 import java.util.Scanner;
-
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 public class Interpolasi {
     public static void PolinomInterpolasi(int jumlahTitik){
 
@@ -72,6 +74,22 @@ public class Interpolasi {
 
             System.out.println("Hasil estimasi dengan polinom interpolasi di atas adalah: ");
             System.out.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
+            //Buat save file//
+            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+            char save=sc.next().charAt(0);
+            if (save=='Y' || save=='y'){
+                    System.out.print("Masukan nama file: ");
+                    String filenamesave=sc.next();
+                    try{
+                            FileWriter fileWriter = new FileWriter(filenamesave);
+                            PrintWriter printWriter = new PrintWriter(fileWriter);
+                            printWriter.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
+                            printWriter.close();
+                        }
+                    catch (Exception e){
+                             System.out.println("Mohon maaf tidak bisa dilakukan");
+                      }
+                 }
         }
     }
 
@@ -150,6 +168,22 @@ public class Interpolasi {
 
             System.out.println("Hasil estimasi dengan polinom interpolasi di atas adalah: ");
             System.out.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
+            //Buat save file//
+            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+            char save=sc.next().charAt(0);
+            if (save=='Y' || save=='y'){
+                System.out.print("Masukan nama file: ");
+                String filenamesave=sc.next();
+                try{
+                    FileWriter fileWriter = new FileWriter(filenamesave);
+                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                    printWriter.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
+                    printWriter.close();
+                    }
+                catch (Exception e){
+                            System.out.println("Mohon maaf tidak bisa dilakukan");
+                            }
+                        }
         }
     }
     public static void main(String[] args){
