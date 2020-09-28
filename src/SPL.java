@@ -72,6 +72,42 @@ public class SPL {
         
     }
 
+    public static double[] cramer(Matrix M) {
+        double[][] temp = new double[Matrix.GetRow(M)][Matrix.GetRow(M)];
+        for(int i = 0; i< Matrix.GetRow(M); i++){
+            
+            for(int j = 0; j< Matrix.GetRow(M); j++){
+                temp[i][j] = Matrix.GetElmt(M, i, j);
+            }
+        }
+
+        Matrix d = new Matrix(temp);
+        Matrix copy = new Matrix(temp);
+        double groundDet = Determinan.hitungDeterminanEK(d);
+
+        double[] data = new double[Matrix.GetRow(M)];
+
+        for(int i = 0; i < Matrix.GetRow(M); i++){ // iterasi x0, x1,...
+
+            for (int j = 0; j < data.length; j++) {
+                for (int j2 = 0; j2 < data.length; j2++) {
+                    Matrix.SetElmt(d, j, j2, Matrix.GetElmt(copy, j, j2));
+                }
+            }
+            
+            for(int j = 0; j< Matrix.GetRow(M); j++){ //iterasi baris per baris
+                
+                for(int k = 0; k< Matrix.GetRow(M); k++){ // iterasi kolom
+                    if(k == i) Matrix.SetElmt(d, j, k, Matrix.GetElmt(M, j, Matrix.GetKol(M)-1));
+                }
+            }
+    
+            data[i] = Determinan.hitungDeterminanEK(d) / groundDet;
+        }
+        return data;
+    }
+
+    
     public static void main(String[] args) {
         Matrix M;
         System.out.println("(Untuk spl, jumlah kolom = jumlah baris + 1)");
@@ -81,12 +117,9 @@ public class SPL {
             M = Matrix.MakeMatrix();
         }
         Matrix.TulisMatrix(M);
-        System.out.println("\n");
-        double[] x = gauss(M);
-        double[] y = gaussJordan(M);
-        for (int i = 0; i < y.length; i++) {
-            System.out.print(x[i] + " "+ y[i]);
-            System.out.println();
+        double[] d = cramer(M);
+        for (int i = 0; i < d.length; i++) {
+            System.out.println(d[i]);
         }
     }
 }

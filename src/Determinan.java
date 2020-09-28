@@ -95,6 +95,6 @@ public class Determinan {
         Matrix M = new Matrix(1,1);
         M = Matrix.MakeMatrix();
 
-        System.out.println(hitungDeterminanRB(M));
+        System.out.println(hitungDeterminanEK(M));
     }
 }
