@@ -107,7 +107,30 @@ public class SPL {
         return data;
     }
 
-    
+    public static double[] inverseSPL(Matrix M) {
+        double[][] vari = new double[Matrix.GetRow(M)][Matrix.GetRow(M)];
+        for (int i = 0; i < vari.length; i++) {
+            for (int j = 0; j < vari.length; j++) {
+                vari[i][j] = Matrix.GetElmt(M, i, j);
+            }
+        }
+        Matrix m = new Matrix(vari);
+        Matrix ma = new Matrix(Matrix.GetRow(M),Matrix.GetRow(M)); 
+        ma = Inverse.InverseAdjoin(m);
+
+        double[][] konst = new double[Matrix.GetRow(M)][1];
+
+        for (int i = 0; i < konst.length; i++) {
+            konst[i][0] = Matrix.GetElmt(M, i, Matrix.GetKol(M)-1);
+        }
+
+        Matrix m1 = new Matrix(1,1);
+        Matrix m2 = new Matrix(konst);
+
+        m1 = Matrix.KaliMatriks(ma,m2);
+
+        return Matrix.Transpose(m1).data[0];
+    }
     public static void main(String[] args) {
         Matrix M;
         System.out.println("(Untuk spl, jumlah kolom = jumlah baris + 1)");
@@ -117,7 +140,7 @@ public class SPL {
             M = Matrix.MakeMatrix();
         }
         Matrix.TulisMatrix(M);
-        double[] d = cramer(M);
+        double[] d = inverseSPL(M);
         for (int i = 0; i < d.length; i++) {
             System.out.println(d[i]);
         }

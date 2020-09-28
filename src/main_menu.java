@@ -219,7 +219,71 @@ public class main_menu {
                     }
                     else if (pilihan1==3){
                         //SPL metode matrix balikan nanti disini//
-                        System.out.println("Masih dalam progress :)");
+                        PrintSubMenuInput();
+                        pilihaninput=sc.nextInt();
+                        pilihaninput=IsWithinRange(pilihaninput, 1, 2);
+                        if (pilihaninput==1){
+                            Matrix X= new Matrix(5,5);
+                            System.out.print("Masukan nama file: ");
+                            filename=sc.next();
+                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                            int n=sc.nextInt();
+                            try{X=(BacaFileToMatrix(filename, n, n));}
+                            catch (Exception e){
+                                System.out.println("File tidak ditemukan!");
+                            }
+                            System.out.println("Berikut matrix dari file tersebut: ");
+                            Matrix.TulisMatrix(X);
+
+                            double[] hasil = SPL.inverseSPL(X);
+                            for (int i = 0; i < hasil.length; i++) {
+                                System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                            }
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    for (int i = 0; i < hasil.length; i++) {
+                                        printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                                    }
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
+                            }
+                        }
+                        else if (pilihaninput==2){
+                            Matrix A=Matrix.MakeMatrix();
+                            System.out.println("Berikut matrix anda: ");
+                            Matrix.TulisMatrix(A);
+
+                            double[] hasil = SPL.inverseSPL(A);
+                            for (int i = 0; i < hasil.length; i++) {
+                                System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                            }
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    for (int i = 0; i < hasil.length; i++) {
+                                        printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                                    }
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
+                            }
+                        }
                     }
                     else if(pilihan1==4){
                         //SPL metode Cramer nanti disini//
