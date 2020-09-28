@@ -4,8 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 public class Interpolasi {
     public static void PolinomInterpolasi(int jumlahTitik){
-
-        /* Scanner input */
         Scanner sc = new Scanner(System.in);
     
         Matrix augInterpolasi = new Matrix(jumlahTitik, jumlahTitik + 1);
