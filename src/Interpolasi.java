@@ -41,7 +41,7 @@ public class Interpolasi {
         }
 
         if(isNan){
-            System.out.println("Polinom interpolasi tidak terdefinisi!");
+            System.out.println("Polinom interpolasi tidak terdefinisi!\n");
         }
         else{
             System.out.println("Polinom interpolasi yang dihasilkan dari titik-titik tersebut: ");
@@ -120,7 +120,7 @@ public class Interpolasi {
         }
 
         if(isNan){
-            System.out.println("Polinom interpolasi tidak terdefinisi!");
+            System.out.println("Polinom interpolasi tidak terdefinisi!\n");
         }
         else{
             System.out.println("Polinom interpolasi yang dihasilkan dari titik-titik tersebut: ");
