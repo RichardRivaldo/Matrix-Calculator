@@ -78,7 +78,7 @@ public class RegresiGanda {
         }
 
         if(isNan){
-            System.out.println("Persamaan regresi linier tidak terdefinisi!");
+            System.out.println("Persamaan regresi linier tidak terdefinisi!\n");
         }
         else{
             System.out.println("Persamaan regresi linier yang dihasilkan:");
@@ -106,7 +106,7 @@ public class RegresiGanda {
             Matrix dataKaliHasil = new Matrix(1, 1);
             dataKaliHasil = Matrix.KaliMatriks(predictData, hasil);
             double hasilRegresi = Matrix.GetElmt(dataKaliHasil, 0, 0);
-            System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f", hasilRegresi);
+            System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f\n", hasilRegresi);
         }
     }
 
@@ -191,7 +191,7 @@ public class RegresiGanda {
         }
 
         if(isNan){
-            System.out.println("Persamaan regresi linier tidak terdefinisi!");
+            System.out.println("Persamaan regresi linier tidak terdefinisi!\n");
         }
         else{
             System.out.println("Persamaan regresi linier yang dihasilkan:");
@@ -219,7 +219,7 @@ public class RegresiGanda {
             Matrix dataKaliHasil = new Matrix(1, 1);
             dataKaliHasil = Matrix.KaliMatriks(predictData, hasil);
             double hasilRegresi = Matrix.GetElmt(dataKaliHasil, 0, 0);
-            System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f", hasilRegresi);
+            System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f\n", hasilRegresi);
         }
     }
 
