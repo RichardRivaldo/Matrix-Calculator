@@ -115,9 +115,10 @@ public class main_menu {
                                         printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
                                     }
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -142,9 +143,10 @@ public class main_menu {
                                         printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
                                     }
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -183,9 +185,10 @@ public class main_menu {
                                         printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
                                     }
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -210,9 +213,10 @@ public class main_menu {
                                         printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
                                     }
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -251,9 +255,10 @@ public class main_menu {
                                         printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
                                     }
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -278,9 +283,10 @@ public class main_menu {
                                         printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
                                     }
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -319,9 +325,10 @@ public class main_menu {
                                         printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
                                     }
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -346,9 +353,10 @@ public class main_menu {
                                         printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
                                     }
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan\n");
                                 }
                             }
                         }
@@ -397,9 +405,10 @@ public class main_menu {
                                     PrintWriter printWriter = new PrintWriter(fileWriter);
                                     printWriter.println("Determinan dari matrix tersebut adalah "+det);
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -421,9 +430,10 @@ public class main_menu {
                                     PrintWriter printWriter = new PrintWriter(fileWriter);
                                     printWriter.println("Determinan dari matrix tersebut adalah "+det);
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -459,9 +469,10 @@ public class main_menu {
                                     PrintWriter printWriter = new PrintWriter(fileWriter);
                                     printWriter.println("Determinan dari matrix tersebut adalah "+det);
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -483,9 +494,10 @@ public class main_menu {
                                     PrintWriter printWriter = new PrintWriter(fileWriter);
                                     printWriter.println("Determinan dari matrix tersebut adalah "+det);
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -565,9 +577,10 @@ public class main_menu {
                                         }
                                     }
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -614,9 +627,10 @@ public class main_menu {
                                             }
                                         }
                                         printWriter.close();
+                                        System.out.println("Data berhasil disimpan!");
                                     }
                                     catch (Exception e){
-                                        System.out.println("Mohon maaf tidak bisa dilakukan");
+                                        System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                     }
                                 }
                         }
@@ -681,9 +695,10 @@ public class main_menu {
                                         }
                                     }
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }
@@ -731,9 +746,10 @@ public class main_menu {
                                         }
                                     }
                                     printWriter.close();
+                                    System.out.println("Data berhasil disimpan!");
                                 }
                                 catch (Exception e){
-                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                                 }
                             }
                         }

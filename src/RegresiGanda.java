@@ -109,6 +109,7 @@ public class RegresiGanda {
             dataKaliHasil = Matrix.KaliMatriks(predictData, hasil);
             double hasilRegresi = Matrix.GetElmt(dataKaliHasil, 0, 0);
             System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f\n", hasilRegresi);
+
             //buat save file//
             System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
             char save=sc.next().charAt(0);
@@ -118,11 +119,38 @@ public class RegresiGanda {
                 try{
                     FileWriter fileWriter = new FileWriter(filenamesave);
                     PrintWriter printWriter = new PrintWriter(fileWriter);
+                    if(isNan){
+                        printWriter.println("Persamaan regresi linier tidak terdefinisi!\n");
+                    }
+                    else{
+                        printWriter.println("Persamaan regresi linier yang dihasilkan:");
+                        printWriter.printf("y = %.4f ", Matrix.GetElmt(hasil, 0, 0));
+                        for(int i = 1; i < Matrix.GetRow(hasil); i++){
+                            if(Matrix.GetElmt(hasil, i, 0) > 0 || Matrix.GetElmt(hasil, i, 0) < 0){
+                                printWriter.print("+ ");
+                            }
+                            else{
+                                printWriter.print("");
+                            }
+            
+                            if(Matrix.GetElmt(hasil, i, 0) > 0){
+                                printWriter.printf("%.4fx%d ", Matrix.GetElmt(hasil, i, 0), i);
+                            }
+                            else if(Matrix.GetElmt(hasil, i, 0) < 0){
+                                printWriter.printf("(%.4fx%d) ", Matrix.GetElmt(hasil, i, 0), i);
+                            }
+                            else{
+                                printWriter.print("");
+                            }
+                        }
+                    }
+                    printWriter.print("\n");
                     printWriter.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f\n", hasilRegresi);
                     printWriter.close();
+                    System.out.println("Data berhasil disimpan!");
                 }
                 catch (Exception e){
-                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                 }
             }
         }
@@ -238,7 +266,7 @@ public class RegresiGanda {
             dataKaliHasil = Matrix.KaliMatriks(predictData, hasil);
             double hasilRegresi = Matrix.GetElmt(dataKaliHasil, 0, 0);
             System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f\n", hasilRegresi);
-            //Buat save file//
+
             System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
             char save=sc.next().charAt(0);
             if (save=='Y' || save=='y'){
@@ -247,11 +275,38 @@ public class RegresiGanda {
                 try{
                     FileWriter fileWriter = new FileWriter(filenamesave);
                     PrintWriter printWriter = new PrintWriter(fileWriter);
+                    if(isNan){
+                        printWriter.println("Persamaan regresi linier tidak terdefinisi!\n");
+                    }
+                    else{
+                        printWriter.println("Persamaan regresi linier yang dihasilkan:");
+                        printWriter.printf("y = %.4f ", Matrix.GetElmt(hasil, 0, 0));
+                        for(int i = 1; i < Matrix.GetRow(hasil); i++){
+                            if(Matrix.GetElmt(hasil, i, 0) > 0 || Matrix.GetElmt(hasil, i, 0) < 0){
+                                printWriter.print("+ ");
+                            }
+                            else{
+                                printWriter.print("");
+                            }
+            
+                            if(Matrix.GetElmt(hasil, i, 0) > 0){
+                                printWriter.printf("%.4fx%d ", Matrix.GetElmt(hasil, i, 0), i);
+                            }
+                            else if(Matrix.GetElmt(hasil, i, 0) < 0){
+                                printWriter.printf("(%.4fx%d) ", Matrix.GetElmt(hasil, i, 0), i);
+                            }
+                            else{
+                                printWriter.print("");
+                            }
+                        }
+                    }
+                    printWriter.print("\n");
                     printWriter.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f\n", hasilRegresi);
                     printWriter.close();
+                    System.out.println("Data berhasil disimpan!");
                 }
                 catch (Exception e){
-                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
                 }
             }
         }

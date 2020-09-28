@@ -74,22 +74,51 @@ public class Interpolasi {
 
             System.out.println("Hasil estimasi dengan polinom interpolasi di atas adalah: ");
             System.out.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
-            //Buat save file//
+
             System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
             char save=sc.next().charAt(0);
             if (save=='Y' || save=='y'){
-                    System.out.print("Masukan nama file: ");
-                    String filenamesave=sc.next();
-                    try{
-                            FileWriter fileWriter = new FileWriter(filenamesave);
-                            PrintWriter printWriter = new PrintWriter(fileWriter);
-                            printWriter.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
-                            printWriter.close();
+                System.out.print("Masukan nama file: ");
+                String filenamesave=sc.next();
+                try{
+                    FileWriter fileWriter = new FileWriter(filenamesave);
+                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                    if(isNan){
+                        printWriter.println("Polinom interpolasi tidak terdefinisi!\n");
+                    }
+                    else{
+                        printWriter.println("Polinom interpolasi yang dihasilkan dari titik-titik tersebut: ");
+                        printWriter.printf("P%d(x) = %.4f ", jumlahTitik - 1, hasilInterpolasi[0]);
+                        for(int i = 1; i < hasilInterpolasi.length; i++){
+                            if(hasilInterpolasi[i] > 0 || hasilInterpolasi[i] <0){
+                                printWriter.print("+ ");
+                            }
+                            else{
+                                printWriter.print("");
+                            }
+                            if(hasilInterpolasi[i] > 0 && i == 1){
+                                printWriter.printf("%.4fx ", hasilInterpolasi[i]);
+                            }
+                            else if(hasilInterpolasi[i] > 0){
+                                printWriter.printf("%.4fx^%d ", hasilInterpolasi[i], i);
+                            }
+                            else if(hasilInterpolasi[i] < 0){
+                                printWriter.printf("(%.4fx^%d) ", hasilInterpolasi[i], i);
+                            }
+                            else{
+                                printWriter.print("");
+                            }
                         }
-                    catch (Exception e){
-                             System.out.println("Mohon maaf tidak bisa dilakukan");
-                      }
-                 }
+                    }
+                    printWriter.print("\n");
+                    printWriter.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
+                    printWriter.close();
+                    System.out.println("Data berhasil disimpan!");
+                }
+                catch (Exception e){
+                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
+                }
+            }
         }
     }
 
@@ -168,7 +197,7 @@ public class Interpolasi {
 
             System.out.println("Hasil estimasi dengan polinom interpolasi di atas adalah: ");
             System.out.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
-            //Buat save file//
+
             System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
             char save=sc.next().charAt(0);
             if (save=='Y' || save=='y'){
@@ -177,13 +206,43 @@ public class Interpolasi {
                 try{
                     FileWriter fileWriter = new FileWriter(filenamesave);
                     PrintWriter printWriter = new PrintWriter(fileWriter);
-                    printWriter.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
-                    printWriter.close();
+                    if(isNan){
+                        printWriter.println("Polinom interpolasi tidak terdefinisi!\n");
                     }
-                catch (Exception e){
-                            System.out.println("Mohon maaf tidak bisa dilakukan");
+                    else{
+                        printWriter.println("Polinom interpolasi yang dihasilkan dari titik-titik tersebut: ");
+                        printWriter.printf("P%d(x) = %.4f ", jumlahbaris - 1, hasilInterpolasi[0]);
+                        for(int i = 1; i < hasilInterpolasi.length; i++){
+                            if(hasilInterpolasi[i] > 0 || hasilInterpolasi[i] <0){
+                                printWriter.print("+ ");
+                            }
+                            else{
+                                printWriter.print("");
+                            }
+                            if(hasilInterpolasi[i] > 0 && i == 1){
+                                printWriter.printf("%.4fx ", hasilInterpolasi[i]);
+                            }
+                            else if(hasilInterpolasi[i] > 0){
+                                printWriter.printf("%.4fx^%d ", hasilInterpolasi[i], i);
+                            }
+                            else if(hasilInterpolasi[i] < 0){
+                                printWriter.printf("(%.4fx^%d) ", hasilInterpolasi[i], i);
+                            }
+                            else{
+                                printWriter.print("");
                             }
                         }
+                    }
+                    printWriter.print("\n");
+                    printWriter.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
+                    printWriter.close();
+                    System.out.println("Data berhasil disimpan!");
+                    
+                }
+                catch (Exception e){
+                    System.out.println("Mohon maaf tidak bisa dilakukan!\n");
+                }
+            }
         }
     }
     public static void main(String[] args){
