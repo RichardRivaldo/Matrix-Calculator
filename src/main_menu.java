@@ -2,6 +2,9 @@ import java.util.Scanner;
 import java.io.FileReader;
 import java.util.Arrays;
 import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 /*Main file, main menu, program utama yg akan dijalankan*/
 public class main_menu {
     public static void PrintMainMenu(){
@@ -53,13 +56,13 @@ public class main_menu {
         System.out.print("2. Keyboard\n");
         System.out.print("Masukkan pilihan (1-2): ");
     }
-
     public static void main(String[] args) {
         //method utama yang akan dijalankan//
         //inisiasi variabel//
         Scanner sc=new Scanner(System.in);
         int pilihan,pilihan1,pilihan2,pilihan3,pilihaninput;
-        String filename;
+        String filename,filenamesave;
+        char save;
 
         System.out.println("Selamat Datang di Tugas Besar Algeo!");
         System.out.println("Tubes ini adalah hasil kolaborasi Hizkia (13519087), Rian (13519147), & Richard (13519185)");
@@ -100,6 +103,23 @@ public class main_menu {
                             for (int i = 0; i < hasil.length; i++) {
                                 System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
                             }
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    for (int i = 0; i < hasil.length; i++) {
+                                        printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                                    }
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
+                            }
                         }
                         else if (pilihaninput==2){
                             Matrix A=Matrix.MakeMatrix();
@@ -109,6 +129,23 @@ public class main_menu {
                             double[] hasil = SPL.gauss(A);
                             for (int i = 0; i < hasil.length; i++) {
                                 System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                            }
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    for (int i = 0; i < hasil.length; i++) {
+                                        printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                                    }
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
                             }
                         }
                     }
@@ -134,6 +171,23 @@ public class main_menu {
                             for (int i = 0; i < hasil.length; i++) {
                                 System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
                             }
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    for (int i = 0; i < hasil.length; i++) {
+                                        printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                                    }
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
+                            }
                         }
                         else if (pilihaninput==2){
                             Matrix A=Matrix.MakeMatrix();
@@ -143,6 +197,23 @@ public class main_menu {
                             double[] hasil = SPL.gaussJordan(A);
                             for (int i = 0; i < hasil.length; i++) {
                                 System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                            }
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    for (int i = 0; i < hasil.length; i++) {
+                                        printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                                    }
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
                             }
                         }
                     }
@@ -172,6 +243,23 @@ public class main_menu {
                             for (int i = 0; i < hasil.length; i++) {
                                 System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
                             }
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    for (int i = 0; i < hasil.length; i++) {
+                                        printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                                    }
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
+                            }
                         }
                         else if (pilihaninput==2){
                             Matrix A=Matrix.MakeMatrix();
@@ -181,6 +269,23 @@ public class main_menu {
                             double[] hasil = SPL.cramer(A);
                             for (int i = 0; i < hasil.length; i++) {
                                 System.out.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                            }
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    for (int i = 0; i < hasil.length; i++) {
+                                        printWriter.println("Nilai x" + (i+1) + " adalah: " + hasil[i]);
+                                    }
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
                             }
                         }
                     }
@@ -218,6 +323,21 @@ public class main_menu {
                             double det=Determinan.hitungDeterminanEK(X);
                             System.out.println("");
                             System.out.println("Determinan dari matrix tersebut adalah "+det);
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    printWriter.println("Determinan dari matrix tersebut adalah "+det);
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
+                            }
                         }
                         else if (pilihaninput==2){
                             //input dari keyboard//
@@ -227,6 +347,21 @@ public class main_menu {
                             System.out.println("");
                             double det=Determinan.hitungDeterminanEK(A);
                             System.out.println("Determinan dari matrix tersebut adalah "+det);
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    printWriter.println("Determinan dari matrix tersebut adalah "+det);
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
+                            }
                         }
                     }
                     else if(pilihan2==2){
@@ -250,6 +385,21 @@ public class main_menu {
                             double det=Determinan.hitungDeterminanRB(X);
                             System.out.println("");
                             System.out.println("Determinan dari matrix tersebut adalah "+det);
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    printWriter.println("Determinan dari matrix tersebut adalah "+det);
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
+                            }
                         }
                         else if (pilihaninput==2){
                             //input dari keyboard//
@@ -259,6 +409,21 @@ public class main_menu {
                             System.out.println("");
                             double det=Determinan.hitungDeterminanRB(A);
                             System.out.println("Determinan dari matrix tersebut adalah "+det);
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    printWriter.println("Determinan dari matrix tersebut adalah "+det);
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
+                            }
                         }
                     }
                     PrintSubMenu2();
@@ -312,6 +477,35 @@ public class main_menu {
                                 X=Inverse.InverseGaussian(X);
                                 Matrix.TulisMatrix(X);
                             }
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    if (Determinan.hitungDeterminanRB(Y)==0){
+                                        printWriter.println("Matrix tidak memiliki inverse!");
+                                    }
+                                    else{
+                                        for (int i=0;i<X.nbrs;i++){
+                                            for (int j=0;j<X.nkol;j++){
+                                                if (j == X.nkol - 1) {
+                                                    printWriter.println(X.data[i][j]+"\n");
+                                                } 
+                                                else {
+                                                    printWriter.print(X.data[i][j]+"  ");
+                                                }  
+                                            }
+                                        }
+                                    }
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
+                            }
                         }
                         else if(pilihaninput==2){
                             //Matrix balikan gauss jordan, input dr keyboard//
@@ -332,6 +526,35 @@ public class main_menu {
                             else{
                                 A=Inverse.InverseGaussian(A);
                                 Matrix.TulisMatrix(A);}
+                                System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                                save=sc.next().charAt(0);
+                                if (save=='Y' || save=='y'){
+                                    System.out.print("Masukan nama file: ");
+                                    filenamesave=sc.next();
+                                    try{
+                                        FileWriter fileWriter = new FileWriter(filenamesave);
+                                        PrintWriter printWriter = new PrintWriter(fileWriter);
+                                        if (Determinan.hitungDeterminanRB(B)==0){
+                                            printWriter.println("Matrix tidak memiliki inverse!");
+                                        }
+                                        else{
+                                            for (int i=0;i<A.nbrs;i++){
+                                                for (int j=0;j<A.nkol;j++){
+                                                    if (j == A.nkol - 1) {
+                                                        printWriter.println(A.data[i][j]+"\n");
+                                                    } 
+                                                    else {
+                                                        printWriter.print(A.data[i][j]+"  ");
+                                                    }  
+                                                }
+                                            }
+                                        }
+                                        printWriter.close();
+                                    }
+                                    catch (Exception e){
+                                        System.out.println("Mohon maaf tidak bisa dilakukan");
+                                    }
+                                }
                         }
                     }
                     else if (pilihan3==2){
@@ -370,6 +593,35 @@ public class main_menu {
                                 X=Inverse.InverseAdjoin(X);
                                 Matrix.TulisMatrix(X);
                             }
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    if (Determinan.hitungDeterminanRB(Y)==0){
+                                        printWriter.println("Matrix tidak memiliki inverse!");
+                                    }
+                                    else{
+                                        for (int i=0;i<X.nbrs;i++){
+                                            for (int j=0;j<X.nkol;j++){
+                                                if (j == X.nkol - 1) {
+                                                    printWriter.println(X.data[i][j]+"\n");
+                                                } 
+                                                else {
+                                                    printWriter.print(X.data[i][j]+"  ");
+                                                }  
+                                            }
+                                        }
+                                    }
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
+                            }
                         }
                         else if(pilihaninput==2){
                             //Matrix balikan Adjoin, input dr keyboard//
@@ -390,6 +642,35 @@ public class main_menu {
                             else{
                                 A=Inverse.InverseAdjoin(A);
                                 Matrix.TulisMatrix(A);
+                            }
+                            System.out.print("Apakah anda ingin save jawaban? (Y/N): ");
+                            save=sc.next().charAt(0);
+                            if (save=='Y' || save=='y'){
+                                System.out.print("Masukan nama file: ");
+                                filenamesave=sc.next();
+                                try{
+                                    FileWriter fileWriter = new FileWriter(filenamesave);
+                                    PrintWriter printWriter = new PrintWriter(fileWriter);
+                                    if (Determinan.hitungDeterminanRB(B)==0){
+                                        printWriter.println("Matrix tidak memiliki inverse!");
+                                    }
+                                    else{
+                                        for (int i=0;i<A.nbrs;i++){
+                                            for (int j=0;j<A.nkol;j++){
+                                                if (j == A.nkol - 1) {
+                                                    printWriter.println(A.data[i][j]+"\n");
+                                                } 
+                                                else {
+                                                    printWriter.print(A.data[i][j]+"  ");
+                                                }  
+                                            }
+                                        }
+                                    }
+                                    printWriter.close();
+                                }
+                                catch (Exception e){
+                                    System.out.println("Mohon maaf tidak bisa dilakukan");
+                                }
                             }
                         }
                     }
