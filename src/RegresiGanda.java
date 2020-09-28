@@ -102,12 +102,12 @@ public class RegresiGanda {
                 }
             }
             System.out.print("\n");
+            
+            Matrix dataKaliHasil = new Matrix(1, 1);
+            dataKaliHasil = Matrix.KaliMatriks(predictData, hasil);
+            double hasilRegresi = Matrix.GetElmt(dataKaliHasil, 0, 0);
+            System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f", hasilRegresi);
         }
-
-        Matrix dataKaliHasil = new Matrix(1, 1);
-        dataKaliHasil = Matrix.KaliMatriks(predictData, hasil);
-        double hasilRegresi = Matrix.GetElmt(dataKaliHasil, 0, 0);
-        System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f", hasilRegresi);
     }
 
     public static void FileRegresi(){
@@ -120,6 +120,20 @@ public class RegresiGanda {
         int jumlahbaris = sc.nextInt();
         System.out.print("Masukkan jumlah kolom dari matriks augmented yang ada di dalam file tersebut: ");
         int jumlahkolom = sc.nextInt();
+
+        Matrix predictData = new Matrix(1, jumlahkolom);
+        System.out.println("Masukkan data yang ingin diregresi: ");
+        
+        for(int j = 0; j < Matrix.GetKol(predictData); j++){
+            Matrix.SetElmt(predictData, 0, j, 1);
+        }
+
+        for(int j = 1; j < Matrix.GetKol(predictData); j++){
+            System.out.printf("Masukkan data %d: ", j);
+            double data = sc.nextDouble();
+            Matrix.SetElmt(predictData, 0, j, data);
+        }
+        /* Matrix.TulisMatrix(predictData); */
 
         Matrix dataRegresi = new Matrix(jumlahbaris, jumlahkolom);
         try {dataRegresi = (main_menu.BacaFileToMatrix(filename, jumlahbaris, jumlahkolom));}
@@ -165,20 +179,6 @@ public class RegresiGanda {
         hasil = Matrix.KaliMatriks(InverseTransXKaliX, XTransposeKaliY);
         /* Matrix.TulisMatrix(hasil); */
 
-        Matrix predictData = new Matrix(1, Matrix.GetKol(titikAbsis));
-        System.out.println("Masukkan data yang ingin diregresi: ");
-        
-        for(int j = 0; j < Matrix.GetKol(predictData); j++){
-            Matrix.SetElmt(predictData, 0, j, 1);
-        }
-
-        for(int j = 1; j < Matrix.GetKol(predictData); j++){
-            System.out.printf("Masukkan data %d: ", j);
-            double data = sc.nextDouble();
-            Matrix.SetElmt(predictData, 0, j, data);
-        }
-        /* Matrix.TulisMatrix(predictData); */
-
         boolean isNan = false;
 
         for(int i = 0; i < Matrix.GetRow(hasil); i++){
@@ -215,12 +215,12 @@ public class RegresiGanda {
                 }
             }
             System.out.print("\n");
+            
+            Matrix dataKaliHasil = new Matrix(1, 1);
+            dataKaliHasil = Matrix.KaliMatriks(predictData, hasil);
+            double hasilRegresi = Matrix.GetElmt(dataKaliHasil, 0, 0);
+            System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f", hasilRegresi);
         }
-
-        Matrix dataKaliHasil = new Matrix(1, 1);
-        dataKaliHasil = Matrix.KaliMatriks(predictData, hasil);
-        double hasilRegresi = Matrix.GetElmt(dataKaliHasil, 0, 0);
-        System.out.printf("Nilai tersebut dari persamaan regresi di atas adalah: %.4f", hasilRegresi);
     }
 
     public static void main(String[] args) {

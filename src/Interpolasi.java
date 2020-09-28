@@ -67,11 +67,12 @@ public class Interpolasi {
                 }
             }
             System.out.print("\n");
-        }
-        int derajatInterpolasi = jumlahTitik - 1;
 
-        System.out.println("Hasil estimasi dengan polinom interpolasi di atas adalah: ");
-        System.out.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
+            int derajatInterpolasi = jumlahTitik - 1;
+
+            System.out.println("Hasil estimasi dengan polinom interpolasi di atas adalah: ");
+            System.out.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
+        }
     }
 
     public static void FileInterpolasi(){
@@ -84,6 +85,9 @@ public class Interpolasi {
         int jumlahbaris = sc.nextInt();
         System.out.print("Masukkan jumlah kolom dari data titik yang ada di dalam file tersebut: ");
         int jumlahkolom = sc.nextInt();
+
+        System.out.print("Masukkan titik yang ingin diestimasi: ");
+        double titikInterpolasi = sc.nextDouble();
 
         Matrix dataInterpolasi = new Matrix(jumlahbaris, jumlahkolom);
         try {dataInterpolasi = (main_menu.BacaFileToMatrix(filename, jumlahbaris, jumlahkolom));}
@@ -98,9 +102,6 @@ public class Interpolasi {
             Matrix.SetElmt(augInterpolasi, i, Matrix.GetKol(augInterpolasi) - 1, Matrix.GetElmt(dataInterpolasi, i, 1));
             }
         }
-
-        System.out.print("Masukkan titik yang ingin diestimasi: ");
-        double titikInterpolasi = sc.nextDouble();
 
         double[] hasilInterpolasi = SPL.gaussJordan(augInterpolasi);
 
@@ -145,11 +146,11 @@ public class Interpolasi {
                 }
             }
             System.out.print("\n");
-        }
-        int derajatInterpolasi = jumlahbaris - 1;
+            int derajatInterpolasi = jumlahbaris - 1;
 
-        System.out.println("Hasil estimasi dengan polinom interpolasi di atas adalah: ");
-        System.out.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
+            System.out.println("Hasil estimasi dengan polinom interpolasi di atas adalah: ");
+            System.out.printf("P%d(%.4f) = %.4f\n", derajatInterpolasi, titikInterpolasi, hasil);
+        }
     }
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
