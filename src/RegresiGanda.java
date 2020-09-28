@@ -139,13 +139,11 @@ public class RegresiGanda {
                 Matrix.SetElmt(titikAbsis, i, j, Matrix.GetElmt(dataRegresi, i, j - 1));
             }
         }
-        Matrix.TulisMatrix(titikAbsis);
         
         Matrix titikOrdinat = new Matrix(jumlahbaris, 1);
         for(int i = 0; i < Matrix.GetRow(titikOrdinat); i++){
             Matrix.SetElmt(titikOrdinat, i, 0, Matrix.GetElmt(dataRegresi, i, Matrix.GetKol(dataRegresi) - 1));
         }
-        Matrix.TulisMatrix(titikOrdinat);
 
         Matrix XTranspose = new Matrix(Matrix.GetKol(titikAbsis), Matrix.GetRow(titikAbsis));
         XTranspose = Matrix.Transpose(titikAbsis);

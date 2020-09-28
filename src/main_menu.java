@@ -10,24 +10,24 @@ public class main_menu {
     }
     public static void PrintSubMenu1(){
         //prosedur penampilan submenu untuk pilihan nomor 1//
-        System.out.print("Sub Menu 1\n1. metode eliminasi gauss\n2. metode eliminasi gauss-jordan\n3. metode matriks balikan\n4. kaidah cramer\n5. kembali\n");
+        System.out.print("Sub Menu 1\n1. Metode Eliminasi Gauss\n2. Metode Eliminasi Gauss-Jordan\n3. Metode Matriks Balikan\n4. Kaidah Cramer\n5. Kembali\n");
         System.out.print("Silakan input angka 1-5 sesuai pilihan: ");}
     public static void PrintSubMenu2(){
         //prosedur penampilan submenu untuk pilihan nomor 2//
-        System.out.print("Sub Menu 2\n1. metode ekspansi kofaktor\n2. metode reduksi baris\n3. kembali\n");
+        System.out.print("Sub Menu 2\n1. Metode ekspansi kofaktor\n2. Metode Reduksi Baris\n3. Kembali\n");
         System.out.print("Silakan input angka 1-3 sesuai pilihan: ");
     }
     public static void PrintSubMenu3(){
         //prosedur penampilan submenu untuk pilihan nomor 3//
-        System.out.print("Sub Menu 3\n1. metode eliminasi gauss-jordan\n2. metode adjoin\n3. kembali\n");
+        System.out.print("Sub Menu 3\n1. Metode Eliminasi Gauss-Jordan\n2. Metode Adjoin\n3. Kembali\n");
         System.out.print("Silakan input angka 1-3 sesuai pilihan: ");
     }
     public static int IsWithinRange(int x,int a, int b){
         //prosedur check apakah dia dalam suatu range atau tidak//
         Scanner scan=new Scanner(System.in);
         while (x<a || x>b){
-            System.out.println("Mohon maaf, pilihan belum benar, silakan coba lagi");
-            System.out.print("Silakan input angka yang sesuai : ");
+            System.out.println("Mohon maaf, pilihan belum benar, silakan coba lagi!");
+            System.out.print("Silakan input angka yang sesuai: ");
             x=scan.nextInt();
         }
         return x;
@@ -81,15 +81,15 @@ public class main_menu {
                     if (pilihan1==1){
                         //SPL metode eliminasi gauss nanti disini//
                         Matrix X= new Matrix(5,5);
-                        System.out.print("Masukan nama file:");
+                        System.out.print("Masukan nama file: ");
                         filename=sc.next();
                         System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
                         int n=sc.nextInt();
                         try{X=(BacaFileToMatrix(filename, n, n));}
                         catch (Exception e){
-                            System.out.println("file tidak ditemukan");
+                            System.out.println("File tidak ditemukan!");
                         }
-                        System.out.println("Berikut matrix dari file");
+                        System.out.println("Berikut matrix dari file tersebut: ");
                         Matrix.TulisMatrix(X);
 
                         double[] hasil = SPL.gauss(X);
@@ -101,15 +101,15 @@ public class main_menu {
                     else if (pilihan1==2){
                         //SPL metode eliminasi Gauss Jordan nanti disini//
                         Matrix X= new Matrix(5,5);
-                        System.out.print("Masukan nama file:");
+                        System.out.print("Masukan nama file: ");
                         filename=sc.next();
                         System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
                         int n=sc.nextInt();
                         try{X=(BacaFileToMatrix(filename, n, n));}
                         catch (Exception e){
-                            System.out.println("file tidak ditemukan");
+                            System.out.println("File tidak ditemukan!");
                         }
-                        System.out.println("Berikut matrix dari file");
+                        System.out.println("Berikut matrix dari file tersebut: ");
                         Matrix.TulisMatrix(X);
 
                         double[] hasil = SPL.gaussJordan(X);
@@ -146,15 +146,15 @@ public class main_menu {
                         if (pilihaninput==1){
                             //input dari file//
                             Matrix X= new Matrix(5,5);
-                            System.out.print("Masukan nama file:");
+                            System.out.print("Masukan nama file: ");
                             filename=sc.next();
                             System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
                             int n=sc.nextInt();
                             try{X=(BacaFileToMatrix(filename, n, n));}
                             catch (Exception e){
-                                System.out.println("file tidak ditemukan");
+                                System.out.println("File tidak ditemukan!");
                             }
-                            System.out.println("Berikut matrix dari file");
+                            System.out.println("Berikut matrix dari file tersebut: ");
                             Matrix.TulisMatrix(X);
                             double det=Determinan.hitungDeterminanEK(X);
                             System.out.println("");
@@ -163,7 +163,7 @@ public class main_menu {
                         else if (pilihaninput==2){
                             //input dari keyboard//
                             Matrix A=Matrix.MakeSquareMatrix();
-                            System.out.println("Berikut matrix anda");
+                            System.out.println("Berikut matrix anda: ");
                             Matrix.TulisMatrix(A);
                             System.out.println("");
                             double det=Determinan.hitungDeterminanEK(A);
@@ -178,15 +178,15 @@ public class main_menu {
                         if (pilihaninput==1){
                             //input dari file//
                             Matrix X= new Matrix(5,5);
-                            System.out.print("Masukan nama file:");
+                            System.out.print("Masukan nama file: ");
                             filename=sc.next();
                             System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
                             int n=sc.nextInt();
                             try{X=(BacaFileToMatrix(filename, n, n));}
                             catch (Exception e){
-                                System.out.println("file tidak ditemukan");
+                                System.out.println("File tidak ditemukan!");
                             }
-                            System.out.println("Berikut matrix dari file");
+                            System.out.println("Berikut matrix dari file tersebut: ");
                             Matrix.TulisMatrix(X);
                             double det=Determinan.hitungDeterminanRB(X);
                             System.out.println("");
@@ -195,7 +195,7 @@ public class main_menu {
                         else if (pilihaninput==2){
                             //input dari keyboard//
                             Matrix A=Matrix.MakeSquareMatrix();
-                            System.out.println("Berikut matrix anda");
+                            System.out.println("Berikut matrix anda: ");
                             Matrix.TulisMatrix(A);
                             System.out.println("");
                             double det=Determinan.hitungDeterminanRB(A);
@@ -224,13 +224,13 @@ public class main_menu {
                         if (pilihaninput==1){
                             //Matrix balikan Gauss jordan input dr File//
                             Matrix X= new Matrix(5,5);
-                            System.out.print("Masukan nama file:");
+                            System.out.print("Masukan nama file: ");
                             filename=sc.next();
                             System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
                             int n=sc.nextInt();
                             try{X=(BacaFileToMatrix(filename, n, n));}
                             catch (Exception e){
-                                System.out.println("file tidak ditemukan");
+                                System.out.println("File tidak ditemukan!");
                             }
                             //copy the matrix//
                             Matrix Y=new Matrix(X.nbrs,X.nkol);
@@ -241,15 +241,15 @@ public class main_menu {
                             }
                             //
                             System.out.println("");
-                            System.out.println("Berikut matrix dari file");
+                            System.out.println("Berikut matrix dari file tersebut: ");
                             Matrix.TulisMatrix(X);
                             System.out.println("");
                             if (Determinan.hitungDeterminanRB(Y)==0){
-                                System.out.println("Matrix tidak memiliki inverse");
+                                System.out.println("Matrix tidak memiliki inverse!");
                                 System.out.println("");
                             }
                             else{
-                                System.out.println("Berikut Inversenya");
+                                System.out.println("Berikut Inversenya: ");
                                 X=Inverse.InverseGaussian(X);
                                 Matrix.TulisMatrix(X);
                             }
@@ -257,7 +257,7 @@ public class main_menu {
                         else if(pilihaninput==2){
                             //Matrix balikan gauss jordan, input dr keyboard//
                             Matrix A= Matrix.MakeSquareMatrix();
-                            System.out.println("Berikut matrix Anda");
+                            System.out.println("Berikut matrix Anda: ");
                             Matrix.TulisMatrix(A);
                             Matrix B=new Matrix(A.nbrs,A.nkol);
                             //apparently we needed a new matrix so the old matrix ga diubah bentuknya, just to check determinan//
@@ -268,7 +268,7 @@ public class main_menu {
                             }
                             double det=Determinan.hitungDeterminanRB(B);
                             if(det==0){
-                                System.out.println("Matrix tidak memiliki inverse");
+                                System.out.println("Matrix tidak memiliki inverse!");
                             }
                             else{
                                 A=Inverse.InverseGaussian(A);
@@ -283,13 +283,13 @@ public class main_menu {
                         if (pilihaninput==1){
                             //Matrix balikan Adjoin input dr File//
                             Matrix X= new Matrix(5,5);
-                            System.out.print("Masukan nama file:");
+                            System.out.print("Masukan nama file: ");
                             filename=sc.next();
                             System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
                             int n=sc.nextInt();
                             try{X=(BacaFileToMatrix(filename, n, n));}
                             catch (Exception e){
-                                System.out.println("file tidak ditemukan");
+                                System.out.println("File tidak ditemukan!");
                             }
                             //copy the matrix
                             Matrix Y=new Matrix(X.nbrs,X.nkol);
@@ -299,15 +299,15 @@ public class main_menu {
                                 }
                             }
                             System.out.println("");
-                            System.out.println("Berikut matrix dari file");
+                            System.out.println("Berikut matrix dari file tersebut: ");
                             Matrix.TulisMatrix(X);
                             System.out.println("");
                             if (Determinan.hitungDeterminanRB(Y)==0){
-                                System.out.println("Matrix tidak memiliki inverse");
+                                System.out.println("Matrix tidak memiliki inverse!");
                                 System.out.println("");
                             }
                             else{
-                                System.out.println("Berikut Inversenya");
+                                System.out.println("Berikut Inversenya: ");
                                 X=Inverse.InverseAdjoin(X);
                                 Matrix.TulisMatrix(X);
                             }
@@ -315,7 +315,7 @@ public class main_menu {
                         else if(pilihaninput==2){
                             //Matrix balikan Adjoin, input dr keyboard//
                             Matrix A= Matrix.MakeSquareMatrix();
-                            System.out.println("Berikut matrix Anda");
+                            System.out.println("Berikut matrix Anda: ");
                             Matrix.TulisMatrix(A);
                             Matrix B=new Matrix(A.nbrs,A.nkol);
                             //copy the matrix//
@@ -326,7 +326,7 @@ public class main_menu {
                             }
                             double det=Determinan.hitungDeterminanRB(B);
                             if(det==0){
-                                System.out.println("Matrix tidak memiliki inverse");
+                                System.out.println("Matrix tidak memiliki inverse!");
                             }
                             else{
                                 A=Inverse.InverseAdjoin(A);
@@ -372,6 +372,7 @@ public class main_menu {
             //check range pilihan//
             pilihan=IsWithinRange(pilihan, 1, 6);
         }
-        System.out.println("Terima Kasih !! Sampai jumpa kembali");
+        System.out.println("Terima Kasih! Sampai jumpa kembali.");
+        System.out.println("Shutting down...");
     }
 }
