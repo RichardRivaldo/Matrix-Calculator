@@ -17,5 +17,9 @@ https://informatika.stei.itb.ac.id/~rinaldi.munir/AljabarGeometri/2020-2021/Tube
 3. jika belum di compile, masuk ke folder src dari terminal dan input sebagai berikut (asumsi java compiler sudah terinstall): 
    javac main_menu.java
 4. secara alternatif, bisa juga masuk ke folder bin dari terminal dan input sebagai berikut: 
-   java main_menu
+   java main_menu (untuk yang tidak menggunakan compile)
 
+### Catatan
+program utama yang menjalankan operasi dinamakan main_menu
+untuk file .java lain berisi prosedur,fungsi, dan primitif untuk tipe data matriks
+jika file .java lain dicompile/dijalankan akan bisa tapi biasanya isinya cuma testing sedikit dan tidak berkontribusi banyak ke main progaram
