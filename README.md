@@ -2,7 +2,7 @@
 Tugas Besar Aljabar Geometri 1
 Sistem Persamaan Linier, Determinan, dan Aplikasinya
 
-untuk detail tubes bisa dilihat di
+untuk detail tubes bisa dilihat di:
 https://informatika.stei.itb.ac.id/~rinaldi.munir/AljabarGeometri/2020-2021/Tubes1-Algeo-2020.pdf
 
 
