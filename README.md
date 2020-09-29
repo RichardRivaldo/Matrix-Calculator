@@ -14,8 +14,8 @@ test: isinya file untuk testing
 # Cara menjalankan program
 1. lakukan git clone ke repository ini.
 2. pastikan java dan compiler untuk java sudah di install
-3. jika belum di compile, masuk ke folder src dari terminal dan input sebagai berikut (asumsi java compiler sudah terinstall)
+3. jika belum di compile, masuk ke folder src dari terminal dan input sebagai berikut (asumsi java compiler sudah terinstall): 
    javac main_menu.java
-4. secara alternatif, bisa juga masuk ke folder bin dari terminal dan input sebagai berikut
-   jaba main_menu
+4. secara alternatif, bisa juga masuk ke folder bin dari terminal dan input sebagai berikut: 
+   java main_menu
 
