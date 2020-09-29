@@ -47,6 +47,7 @@ public class Determinan {
         double det = 0;
         int sign = 1;
         double curr = 0;
+        if (Matrix.GetKol(M) == 1) return det(M);
         for (int i = 0; i < Matrix.GetKol(M); i++) {
             if ((Matrix.GetKol(minor(M, 0, i)) == 2) && (Matrix.GetRow(minor(M, 0, i)) == 2)){
                 curr = sign*det2(minor(M, 0, i))*Matrix.GetElmt(M, 0, i);
