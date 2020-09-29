@@ -1,6 +1,7 @@
 # Algeo01-19087
 Tugas Besar Aljabar Geometri 1
 Sistem Persamaan Linier, Determinan, dan Aplikasinya
+Hizkia R (13519087), Andrianata P (13519147), Richard R (13519185)
 
 untuk detail tubes bisa dilihat di:
 https://informatika.stei.itb.ac.id/~rinaldi.munir/AljabarGeometri/2020-2021/Tubes1-Algeo-2020.pdf
@@ -19,7 +20,7 @@ https://informatika.stei.itb.ac.id/~rinaldi.munir/AljabarGeometri/2020-2021/Tube
 4. secara alternatif, bisa juga masuk ke folder bin dari terminal dan input sebagai berikut: 
    java main_menu (untuk yang tidak menggunakan compile)
 
-##### Catatan
-program utama yang menjalankan operasi dinamakan main_menu
-untuk file .java lain berisi prosedur,fungsi, dan primitif untuk tipe data matriks
-jika file .java lain dicompile/dijalankan akan bisa tapi biasanya isinya cuma testing sedikit dan tidak berkontribusi banyak ke main progaram
+##### Catatan:
+1.program utama yang menjalankan operasi dinamakan main_menu
+2.untuk file .java lain berisi prosedur,fungsi, dan primitif untuk tipe data matriks
+3.jika file .java lain dicompile/dijalankan akan bisa tapi biasanya isinya cuma testing sedikit dan tidak berkontribusi banyak ke main progaram
