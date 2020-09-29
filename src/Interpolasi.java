@@ -97,6 +97,9 @@ public class Interpolasi {
                             if(hasilInterpolasi[i] > 0 && i == 1){
                                 printWriter.printf("%.4fx ", hasilInterpolasi[i]);
                             }
+                            else if(hasilInterpolasi[i] < 0 && i ==1){
+                                printWriter.printf("(%.4fx)", hasilInterpolasi[i]);
+                            }
                             else if(hasilInterpolasi[i] > 0){
                                 printWriter.printf("%.4fx^%d ", hasilInterpolasi[i], i);
                             }
@@ -219,6 +222,9 @@ public class Interpolasi {
                             }
                             if(hasilInterpolasi[i] > 0 && i == 1){
                                 printWriter.printf("%.4fx ", hasilInterpolasi[i]);
+                            }
+                            else if(hasilInterpolasi[i] < 0 && i ==1){
+                                printWriter.printf("(%.4fx)", hasilInterpolasi[i]);
                             }
                             else if(hasilInterpolasi[i] > 0){
                                 printWriter.printf("%.4fx^%d ", hasilInterpolasi[i], i);
