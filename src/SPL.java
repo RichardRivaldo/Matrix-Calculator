@@ -137,6 +137,7 @@ public class SPL {
             return data;
         }
         else{
+            //kalo no/multi solusi
             System.out.println("Matriks tidak memiliki solusi atau multi solusi");
             double[] dummy = new double[1];
             return dummy;
@@ -170,6 +171,7 @@ public class SPL {
             return Matrix.Transpose(m1).data[0];
         }
         else{
+            // kalo no/multi solusi
             System.out.println("Matriks tidak memiliki solusi atau multi solusi");
             double[] dummy = new double[1];
             return dummy;
