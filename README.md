@@ -6,10 +6,10 @@ untuk detail tubes bisa dilihat di
 https://informatika.stei.itb.ac.id/~rinaldi.munir/AljabarGeometri/2020-2021/Tubes1-Algeo-2020.pdf
 
 
-bin: isinya file .class\n
-src: isinya file .java\n
-doc: isinya file laporan\n
-test: isinya file untuk testing\n
+1. bin: isinya file .class
+2. src: isinya file .java
+3. doc: isinya file laporan
+4. test: isinya file untuk testing
 
 # Cara menjalankan program
 1. lakukan git clone ke repository ini.
