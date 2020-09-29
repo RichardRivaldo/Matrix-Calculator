@@ -12,7 +12,7 @@ https://informatika.stei.itb.ac.id/~rinaldi.munir/AljabarGeometri/2020-2021/Tube
 4. test: isinya file untuk testing
 
 # Cara menjalankan program
-1. lakukan git clone ke repository ini.
+1. lakukan git clone dari repository ini ke pc anda.
 2. pastikan java dan compiler untuk java sudah di install
 3. jika belum di compile, masuk ke folder src dari terminal dan input sebagai berikut (asumsi java compiler sudah terinstall): 
    javac main_menu.java
