@@ -4,7 +4,7 @@ Sistem Persamaan Linier, Determinan, dan Aplikasinya\
 Hizkia R. (13519087), Andrianata P. (13519147), Richard R. (13519185)
 
 Detail tubes bisa dilihat di:\
-https://informatika.stei.itb.ac.id/~rinaldi.munir/AljabarGeometri/2020-2021/Tubes1-Algeo-2020.pdf\
+https://informatika.stei.itb.ac.id/~rinaldi.munir/AljabarGeometri/2020-2021/Tubes1-Algeo-2020.pdf
 
 
 1. bin: berisi file bytecode java (.class)
