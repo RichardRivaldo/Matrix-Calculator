@@ -1,37 +1,49 @@
 public class SPL {
     public static double[] gaussJordan(Matrix M) {
-        int counter = 0;
+        if (IsOK(M)){
+            int counter = 0;
 
-        for (int i = 0; i < Matrix.GetRow(M); i++) {
-            double pivot = Matrix.GetElmt(M, i, counter);
+            for (int i = 0; i < Matrix.GetRow(M); i++) {
+                double pivot = Matrix.GetElmt(M, i, counter);
 
-            if (pivot != 1){
-                for (int j = 0; j < Matrix.GetKol(M); j++) {
-                    Matrix.SetElmt(M, i, j, Matrix.GetElmt(M, i, j)/pivot);
+                if (pivot != 1){
+                    for (int j = 0; j < Matrix.GetKol(M); j++) {
+                        Matrix.SetElmt(M, i, j, Matrix.GetElmt(M, i, j)/pivot);
+                    }
                 }
-            }
 
-            for (int k = 0; k < Matrix.GetRow(M); k++) {
-                if (k == i) continue;
+                for (int k = 0; k < Matrix.GetRow(M); k++) {
+                    if (k == i) continue;
 
-                double konst = Matrix.GetElmt(M, k, counter);
-                for (int j = 0; j < Matrix.GetKol(M); j++) {
-                    double a = Matrix.GetElmt(M, k, j);
-                    double b = konst * Matrix.GetElmt(M, i, j);
-                    Matrix.SetElmt(M, k, j, a-b);
+                    double konst = Matrix.GetElmt(M, k, counter);
+                    for (int j = 0; j < Matrix.GetKol(M); j++) {
+                        double a = Matrix.GetElmt(M, k, j);
+                        double b = konst * Matrix.GetElmt(M, i, j);
+                        Matrix.SetElmt(M, k, j, a-b);
+                    }
                 }
-            }
 
-            counter++;
+                counter++;
+            }
+            
+            
+            double[] hasil = new double[Matrix.GetRow(M)];
+            for (int i = 0; i < Matrix.GetRow(M); i++) {
+                hasil[i] = Matrix.GetElmt(M, i, Matrix.GetKol(M)-1);
+            }
+            return hasil;
         }
-        
-        
-        double[] hasil = new double[Matrix.GetRow(M)];
-        for (int i = 0; i < Matrix.GetRow(M); i++) {
-            hasil[i] = Matrix.GetElmt(M, i, Matrix.GetKol(M)-1);
+        else if (Matrix.GetElmt(M, Matrix.GetRow(M)-1, Matrix.GetKol(M)-1) == 0){
+            //kalo no/multi solusi
+            System.out.println("Matriks multi solusi");
+            double[] dummy = new double[1];
+            return dummy;
         }
-        return hasil;
-        
+        else{
+            System.out.println("Matriks tidak ada solusi");
+            double[] dummy = new double[1];
+            return dummy;
+        }
     }
 
     
@@ -65,7 +77,13 @@ public class SPL {
     }
 
     public static boolean IsOK(Matrix M) {
-        return (Determinan.hitungDeterminanEK(M) != 0);
+        Matrix m =new Matrix(Matrix.GetRow(M),Matrix.GetRow(M));
+        for (int i = 0; i < Matrix.GetRow(M); i++) {
+            for (int j = 0; j < Matrix.GetRow(M); j++) {
+                Matrix.SetElmt(m, i, j, Matrix.GetElmt(M, i, j));
+            }
+        }
+        return (Determinan.hitungDeterminanEK(m) != 0);
     }
 
     public static boolean IsNotOK(Matrix M) {
@@ -81,8 +99,8 @@ public class SPL {
             return dummy;
         }
         else if (IsNotOK(M) && Matrix.GetElmt(M, Matrix.GetRow(M)-1, Matrix.GetKol(M)-1) == 0){
-            // ini apaaa
-            // dummy biar nyambung sama keluaran double[], apus aja yg dibawah ini
+            System.out.println("Matrix memiliki banyak solusi");
+
             double[] dummy = new double[1];
             return dummy;
         }
@@ -137,8 +155,7 @@ public class SPL {
             return data;
         }
         else{
-            //kalo no/multi solusi
-            System.out.println("Matriks tidak memiliki solusi atau multi solusi");
+            System.out.println("Matriks tidak ada solusi");
             double[] dummy = new double[1];
             return dummy;
         }
@@ -186,7 +203,10 @@ public class SPL {
             System.out.println("Matriks tidak valid untuk SPL!\n");
             M = Matrix.MakeMatrix();
         }
-        M = doGauss(M);
-        Matrix.TulisMatrix(M);
+        double[] s = new double[Matrix.GetRow(M)];
+        s = gauss(M);
+        for (int i = 0; i < s.length; i++) {
+            System.out.println(s[i]);
+        }
     }
 }
