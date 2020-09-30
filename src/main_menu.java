@@ -90,9 +90,12 @@ public class main_menu {
                             Matrix X= new Matrix(5,5);
                             System.out.print("Masukan nama file: ");
                             filename=sc.next();
-                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file):\n ");
+                            System.out.print("Masukan jumlah baris: ");
                             int n=sc.nextInt();
-                            try{X=(BacaFileToMatrix(filename, n, n));}
+                            System.out.print("Masukan jumlah kolom: ");
+                            int m=sc.nextInt();
+                            try{X=(BacaFileToMatrix(filename, n, m));}
                             catch (Exception e){
                                 System.out.println("File tidak ditemukan!");
                             }
@@ -160,9 +163,11 @@ public class main_menu {
                             Matrix X= new Matrix(5,5);
                             System.out.print("Masukan nama file: ");
                             filename=sc.next();
-                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                            System.out.print("Masukan jumlah baris: ");
                             int n=sc.nextInt();
-                            try{X=(BacaFileToMatrix(filename, n, n));}
+                            System.out.print("Masukan jumlah kolom: ");
+                            int m=sc.nextInt();
+                            try{X=(BacaFileToMatrix(filename, n, m));}
                             catch (Exception e){
                                 System.out.println("File tidak ditemukan!");
                             }
@@ -230,9 +235,11 @@ public class main_menu {
                             Matrix X= new Matrix(5,5);
                             System.out.print("Masukan nama file: ");
                             filename=sc.next();
-                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                            System.out.print("Masukan jumlah baris: ");
                             int n=sc.nextInt();
-                            try{X=(BacaFileToMatrix(filename, n, n));}
+                            System.out.print("Masukan jumlah kolom: ");
+                            int m=sc.nextInt();
+                            try{X=(BacaFileToMatrix(filename, n, m));}
                             catch (Exception e){
                                 System.out.println("File tidak ditemukan!");
                             }
@@ -300,9 +307,11 @@ public class main_menu {
                             Matrix X= new Matrix(5,5);
                             System.out.print("Masukan nama file: ");
                             filename=sc.next();
-                            System.out.print("Masukan dimensi matrix(harus sesuai dengan yang ada di file): ");
+                            System.out.print("Masukan jumlah baris: ");
                             int n=sc.nextInt();
-                            try{X=(BacaFileToMatrix(filename, n, n));}
+                            System.out.print("Masukan jumlah kolom: ");
+                            int m=sc.nextInt();
+                            try{X=(BacaFileToMatrix(filename, n, m));}
                             catch (Exception e){
                                 System.out.println("File tidak ditemukan!");
                             }
