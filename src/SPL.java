@@ -84,19 +84,19 @@ public class SPL {
         
     }
 
-    public static boolean IsNotOK(Matrix M, int a) {
+    public static boolean IsNotOK(Matrix M) {
         return !IsOK(M);
     }
 
     public static double[] gauss(Matrix M) {
         M = doGauss(M);
 
-        if (IsNotOK(M,0) && Matrix.GetElmt(M, Matrix.GetRow(M)-1, Matrix.GetKol(M)-1) != 0){
+        if (IsNotOK(M) && Matrix.GetElmt(M, Matrix.GetRow(M)-1, Matrix.GetKol(M)-1) != 0){
             System.out.println("Matrix tidak memiliki solusi");
             double[] dummy = new double[1];
             return dummy;
         }
-        else if ((IsNotOK(M,0) && Matrix.GetElmt(M, Matrix.GetRow(M)-1, Matrix.GetKol(M)-1) == 0) || (Matrix.GetKol(M) - Matrix.GetRow(M) > 1)){
+        else if ((IsNotOK(M) && Matrix.GetElmt(M, Matrix.GetRow(M)-1, Matrix.GetKol(M)-1) == 0) || (Matrix.GetKol(M) - Matrix.GetRow(M) != 1)){
             System.out.println("Matrix memiliki banyak solusi");
 
             double[] dummy = new double[1];
@@ -153,7 +153,7 @@ public class SPL {
             return data;
         }
         else{
-            System.out.println("Matriks tidak ada solusi");
+            System.out.println("Matriks tidak ada solusi atau multi solusi");
             double[] dummy = new double[1];
             return dummy;
         }
@@ -199,7 +199,7 @@ public class SPL {
         M = Matrix.MakeMatrix();
         
         double[] s = new double[Matrix.GetRow(M)];
-        s = gaussJordan(M);
+        s = gauss(M);
         for (int i = 0; i < s.length; i++) {
             System.out.println(s[i]);
         }
