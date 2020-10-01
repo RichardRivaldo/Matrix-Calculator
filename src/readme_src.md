@@ -1,4 +1,5 @@
-this is the src folder, put all the .java files here
+This 'src' folder contains main source code used in the program.
 
-for the main program we use the main_menu one, the rest is just functions and procedures
-for input that uses files, make sure that the .txt files are in the same directory as the main_menu.java program, else it wont read it correctly
+Besides functions and procedures used in the program, there is also a main_menu.java file in which the Main Program is coded.
+While in this folder, make sure to first compile the file before trying to run it.
+If you want to test the program using input files from the 'test' folder, or one you make yourself, make sure to put it here.
