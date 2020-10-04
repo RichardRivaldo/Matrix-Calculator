@@ -24,4 +24,4 @@ https://informatika.stei.itb.ac.id/~rinaldi.munir/AljabarGeometri/2020-2021/Tube
 1. Program utama yang menjalankan operasi dinamakan main_menu
 2. Untuk file .java lain berisi prosedur,fungsi, dan primitif untuk tipe data matriks
 3. Jika file .java lain dicompile/dijalankan akan bisa tapi biasanya isinya cuma testing sedikit dan tidak berkontribusi banyak ke main program
-4. Untuk selebihnya/detail mengenai tubes ini bisa hubungi lewat line (lineid:hizkiacanggih)
+4. Detail program lebih lanjut bisa ditanyakan melalui Line (ID = hasha_)
